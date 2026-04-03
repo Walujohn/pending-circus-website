@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pending Circus — Internal Roadmap</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root {
+      --bg: #f8f4f2;
+      --surface: #ffffff;
+      --text: #1f1a1c;
+      --muted: #665b60;
+      --line: #e7dade;
+      --accent: #b44f7b;
+      --accent-2: #5d4fb8;
+      --shadow: 0 18px 48px rgba(51, 29, 39, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max-width: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f7edf2 0%, var(--bg) 40%, #fbf9f8 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .page {
+      padding: 40px 0 70px;
+    }
+
+    .hero {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      background: rgba(255,255,255,0.8);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      max-width: 12ch;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 54rem;
+      font-size: 1.02rem;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2,
+    .panel h3 {
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
+
+    .phase {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .phase h2 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+    }
+
+    .phase-subtitle {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .milestone {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+
+    .milestone:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .milestone h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .small {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin: 0 0 14px 0;
+      padding-left: 20px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .checkitem {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .copy-block {
+      margin-top: 10px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .copy-label {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .routine {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .intro,
+      .routine {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: 14ch;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .hero,
+      .panel,
+      .phase,
+      .checkitem,
+      .copy-block {
+        box-shadow: none;
+      }
+
+      .page {
+        padding: 0 0 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <section class="hero">
+        <span class="eyebrow">Internal roadmap</span>
+        <h1>Pending Circus roadmap.</h1>
+        <p>
+          Pending Circus is a duo performance project led by Sarah and John, specializing in immersive character work,
+          movement-based storytelling, thematic ballroom-cirque performance, and live audience improvisation. Our work
+          blends dance, elegance, humor, theatrical atmosphere, and acrobatic physicality. We are especially strong in
+          world-building performance for immersive events, fantasy environments, and story-led live experiences.
+        </p>
+
+        <div class="intro">
+          <div class="panel">
+            <h2>Focus</h2>
+            <p>
+              The goal is not to become a general gig company. The goal is to build a clear artistic identity,
+              stronger proof materials, simple business systems, repeatable themed experience packages, and a consistent
+              outreach rhythm that supports bigger opportunities over time.
+            </p>
+          </div>
+          <div class="panel">
+            <h2>Guiding principle</h2>
+            <p>
+              Keep the main effort on artistic positioning, proof, systems, and outreach. Keep side-income tools useful,
+              but do not let them define the brand.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Phase 1 — clarify the artistic identity</h2>
+        <p class="phase-subtitle">Build a language people can understand and remember.</p>
+
+        <div class="milestone">
+          <h3>Milestone 1: finalize the core brand statement</h3>
+          <p class="small">Create one polished paragraph, one short version, and one sentence version.</p>
+
+          <div class="copy-block">
+            <div class="copy-label">Starter copy</div>
+            <p>
+              Pending Circus is a duo performance project led by Sarah and John, specializing in immersive character work,
+              movement-based storytelling, thematic ballroom-cirque performance, and live audience improvisation.
+              Our work blends elegance, humor, theatrical atmosphere, and acrobatic physicality. We are especially strong
+              in world-building performance for immersive events, fantasy environments, and story-led live experiences.
+            </p>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-label">Short version</div>
+            <p>
+              Pending Circus creates immersive duo performance blending character, dance, acrobatics, and live audience connection.
+            </p>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-label">One-line version</div>
+            <p>
+              Immersive duo performance for story-led live experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 2: define three repeatable performance worlds</h3>
+          <p class="small">Choose three artistic lanes that feel aligned, castable, and expandable.</p>
+
+          <div class="checklist">
+            <div class="checkitem">Immersive fantasy characters</div>
+            <div class="checkitem">Theatrical romance and cinematic duets</div>
+            <div class="checkitem">Playful live spectacle with audience interaction</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-label">Starter section copy</div>
+            <p>
+              Pending Circus can be elegant, comic, romantic, eerie, dreamy, or fantastical depending on the world we are helping build.
+            </p>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 3: define repeatable themed experience packages</h3>
+          <p class="small">Start with experience packages, not unrelated physical products.</p>
+
+          <ul>
+            <li>One immersive welcome package</li>
+            <li>One theatrical duet package</li>
+            <li>One audience-interaction package</li>
+          </ul>
+
+          <div class="copy-block">
+            <div class="copy-label">Starter naming prompt</div>
+            <p>
+              Build package names around world, feeling, and guest experience rather than props or apparatus.
+            </p>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-label">Starter description prompt</div>
+            <p>
+              Each package should answer: who are we, what world are guests entering, what do they feel, and what can we deliver in 5, 20, or 60 minutes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Phase 2 — build the proof materials</h2>
+        <p class="phase-subtitle">Make it easy for someone to understand the work quickly.</p>
+
+        <div class="milestone">
+          <h3>Milestone 4: publish the website as the home base</h3>
+          <p class="small">Keep it clean, visual, and simple. Use placeholders until better photos are ready.</p>
+
+          <ul>
+            <li>Homepage with clear positioning</li>
+            <li>Three performance worlds</li>
+            <li>Selected gallery</li>
+            <li>Short about section</li>
+            <li>Simple contact path</li>
+          </ul>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 5: replace placeholders with proof</h3>
+          <p class="small">Gather images and clips that show real chemistry, world-building, and audience response.</p>
+
+          <div class="checklist">
+            <div class="checkitem">One strong hero image</div>
+            <div class="checkitem">Three gallery images minimum</div>
+            <div class="checkitem">At least one image of immersive character work</div>
+            <div class="checkitem">At least one image of dance or theatrical elegance</div>
+            <div class="checkitem">At least one image showing duo chemistry or audience interaction</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 6: create a simple lookbook</h3>
+          <p class="small">Make one polished asset you can send with outreach.</p>
+
+          <ul>
+            <li>6 to 10 best photos</li>
+            <li>Brand statement</li>
+            <li>Three performance worlds</li>
+            <li>Contact information</li>
+            <li>Website and Instagram links</li>
+          </ul>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 7: assemble a short reel</h3>
+          <p class="small">Aim for a concise reel that quickly communicates vibe, world, and capability.</p>
+
+          <div class="copy-block">
+            <div class="copy-label">Starter sequence prompt</div>
+            <p>
+              Lead with the strongest visual world first, then duo chemistry, then movement range, then audience-facing moments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Phase 3 — create the business system</h2>
+        <p class="phase-subtitle">Get the basics out of your head and into simple structures.</p>
+
+        <div class="milestone">
+          <h3>Milestone 8: organize the LLC operations</h3>
+          <p class="small">Create a place to track taxes, subscriptions, renewals, budget, and insurance.</p>
+
+          <ul>
+            <li>Tax tracking spreadsheet</li>
+            <li>Renewals and compliance spreadsheet</li>
+            <li>Subscriptions tracker</li>
+            <li>Budget tracker</li>
+            <li>Performance insurance line item</li>
+          </ul>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 9: create a lightweight budget</h3>
+          <p class="small">Budget for clarity, not perfection.</p>
+
+          <div class="checklist">
+            <div class="checkitem">Website and domain</div>
+            <div class="checkitem">Insurance</div>
+            <div class="checkitem">Costumes and repairs</div>
+            <div class="checkitem">Travel and outreach</div>
+            <div class="checkitem">Marketing materials</div>
+            <div class="checkitem">Training or rehearsal costs</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 10: plan new marketing materials before year-end</h3>
+          <p class="small">Schedule a focused refresh instead of endlessly tweaking.</p>
+
+          <ul>
+            <li>Logo direction</li>
+            <li>Updated images</li>
+            <li>Reel refresh</li>
+            <li>Lookbook revision</li>
+            <li>Website image refresh</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Phase 4 — build the opportunity pipeline</h2>
+        <p class="phase-subtitle">Use a consistent outreach system rather than random bursts of effort.</p>
+
+        <div class="milestone">
+          <h3>Milestone 11: build a target list</h3>
+          <p class="small">Create a broad list with room for local, national, and international opportunities.</p>
+
+          <ul>
+            <li>Name</li>
+            <li>Type</li>
+            <li>Why they fit</li>
+            <li>Contact method</li>
+            <li>Date contacted</li>
+            <li>Next follow-up date</li>
+          </ul>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 12: write a simple outreach template</h3>
+          <p class="small">Keep it human, short, and easy to personalize.</p>
+
+          <div class="copy-block">
+            <div class="copy-label">Starter outreach structure</div>
+            <p>
+              Brief introduction. One sentence on what Pending Circus is. One sentence on why your work may fit their world.
+              Offer a website, reel, or lookbook link. Close warmly and simply.
+            </p>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <h3>Milestone 13: start a focused outreach rhythm</h3>
+          <p class="small">Small consistency beats rare intensity.</p>
+
+          <div class="checklist">
+            <div class="checkitem">Add new targets weekly</div>
+            <div class="checkitem">Send a small number of thoughtful messages weekly</div>
+            <div class="checkitem">Track follow-ups</div>
+            <div class="checkitem">Refine copy based on responses</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Weekly rhythm</h2>
+        <p class="phase-subtitle">Keep progress steady without letting the business consume every hour.</p>
+
+        <div class="routine">
+          <div class="panel">
+            <h3>Website lane</h3>
+            <p>One section, one image, one link, or one copy improvement.</p>
+          </div>
+          <div class="panel">
+            <h3>Business lane</h3>
+            <p>One admin task, one budget update, one tracker update, or one outreach action.</p>
+          </div>
+          <div class="panel">
+            <h3>Art lane</h3>
+            <p>Rehearsal, concept development, costume work, filming, or movement practice.</p>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          The aim is not to do everything at once. The aim is to build a clear identity, a believable body of proof,
+          simple systems, and a steady path toward larger artistic opportunities.
+        </p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
