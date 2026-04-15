@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap");
+
 :root {
   --bg: #f7f3f0;
   --surface: rgba(255, 255, 255, 0.86);
@@ -7,6 +9,8 @@
   --line: #eadde3;
   --accent: #b75d86;
   --accent-2: #6556b8;
+  --gold: #caa053;
+  --accent-warm: #d86d52;
   --shadow: 0 18px 48px rgba(55, 31, 42, 0.08);
   --radius-lg: 28px;
   --radius-md: 20px;
@@ -101,10 +105,16 @@ button:focus-visible {
 }
 
 .brand span {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.38rem;
+  font-weight: 700;
   line-height: 1;
   white-space: nowrap;
   display: flex;
   align-items: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .nav {
