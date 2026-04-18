@@ -8,6 +8,9 @@
     name="description"
     content="Pending Circus provides live dance, aerial, and event performance for corporate events, galas, private parties, and productions in Atlanta and beyond."
   />
+  <meta name="theme-color" content="#111111" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,8 +18,8 @@
     <div class="top-nav-wrap">
       <p class="hero-seo">Live dance and performance for events in Atlanta and beyond.</p>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#offerings">What we do</a>
         <a href="#video">Video</a>
+        <a href="#offerings">What we do</a>
         <a href="#about">About</a>
         <a href="#contact">Book</a>
       </nav>
@@ -28,10 +31,13 @@
           src="media/fierce-sarah.jpg"
           alt="Pending Circus performer in a dramatic dance portrait"
           class="hero-photo"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
         <img src="media/finley-fire.png" alt="" class="hero-finley" aria-hidden="true" />
         <div class="burst-badge">Now Booking 2027</div>
-        <a href="#contact" class="hero-cta">Book Us</a>
+        <a href="#contact" class="hero-cta">Work With Us</a>
       </div>
     </section>
   </header>
@@ -171,11 +177,11 @@
       </div>
     </section>
 
-    <p class="trust-line">Performed for: Piedmont, OpenGov, Mirth and Mischief.</p>
+    <p class="trust-line">Performed for Piedmont, OpenGov, Mirth and Mischief.</p>
 
     <section class="contact-band" id="contact" aria-label="Book Pending Circus">
       <div class="container">
-        <form class="contact-form" action="mailto:pendingcircus@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" action="mailto:pendingcircus@gmail.com" method="post" enctype="text/plain" aria-label="Booking request form">
           <h2>Want us at your event?</h2>
           <blockquote class="form-testimonial">
             <p>“They changed the whole energy of the room.”</p>
@@ -184,15 +190,15 @@
           <div class="form-grid">
             <label>
               <span>Name</span>
-              <input type="text" name="name" />
+              <input type="text" name="name" autocomplete="name" />
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" />
+              <input type="email" name="email" autocomplete="email" inputmode="email" />
             </label>
             <label>
               <span>City</span>
-              <input type="text" name="city" />
+              <input type="text" name="city" autocomplete="address-level2" />
             </label>
             <label>
               <span>Date</span>
@@ -211,10 +217,10 @@
     <section class="section closing-section" id="about">
       <div class="container closing-grid">
         <div class="plain-contact">
-          <p>Atlanta based. Available for travel.</p>
-          <p>Phone: <a href="tel:3142767081">314 276 7081</a></p>
-          <p>Email: <a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a></p>
-          <p>Instagram: <a href="https://instagram.com/sarah_fiadh_pending_circus" target="_blank" rel="noreferrer">@sarah_fiadh_pending_circus</a></p>
+          <p>Pending Circus is Sarah and John — Atlanta based performers available for events and productions worldwide.</p>
+          <p><a href="tel:3142767081">314 276 7081</a></p>
+          <p><a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a></p>
+          <p><a href="https://instagram.com/sarah_fiadh_pending_circus" target="_blank" rel="noreferrer">@sarah_fiadh_pending_circus</a></p>
         </div>
       </div>
     </section>
