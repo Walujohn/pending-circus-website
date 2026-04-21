@@ -87,23 +87,15 @@ button {
   background: var(--bg);
   border-top: 10px solid var(--ink);
   border-bottom: 10px solid var(--ink);
+  overflow: hidden;
 }
 
 .hero-photo {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  display: block;
+  object-fit: cover;
   background: var(--bg);
-}
-
-.hero-finley {
-  position: absolute;
-  left: 50%;
-  bottom: -34px;
-  transform: translateX(-50%);
-  width: min(500px, 58vw);
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.16));
-  pointer-events: none;
 }
 
 .burst-badge {
@@ -112,13 +104,13 @@ button {
   top: 18px;
   display: grid;
   place-items: center;
-  min-width: 118px;
-  min-height: 118px;
-  padding: 14px;
+  min-width: 152px;
+  min-height: 152px;
+  padding: 16px;
   background: var(--ink);
   color: var(--bg);
   text-align: center;
-  font-size: 0.78rem;
+  font-size: 0.94rem;
   line-height: 1.05;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -135,12 +127,12 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 0 22px;
+  min-height: 62px;
+  padding: 0 36px;
   border: 3px solid var(--ink);
   background: #ffffff;
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 1.38rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -157,7 +149,7 @@ button {
   top: 0;
   z-index: 40;
   width: 100vw;
-  margin: 18px 0 0 calc(50% - 50vw);
+  margin: 0 0 0 calc(50% - 50vw);
   padding: 10px 24px 12px;
   background: rgba(210, 241, 236, 0.94);
   backdrop-filter: blur(10px);
@@ -169,7 +161,7 @@ button {
   width: min(calc(100% - 56px), var(--max-width));
   margin: 0 auto 8px;
   text-align: center;
-  font-size: 0.84rem;
+  font-size: 1.05rem;
   letter-spacing: 0.02em;
   font-weight: 400;
 }
@@ -178,14 +170,14 @@ button {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px 22px;
+  gap: 12px 28px;
   width: min(calc(100% - 56px), var(--max-width));
   margin: 0 auto;
   padding: 0;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .nav a {
@@ -197,6 +189,77 @@ button {
 .nav a:hover {
   opacity: 1;
   border-color: var(--ink);
+}
+
+/* Nav inner row: links + hamburger */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: min(calc(100% - 56px), var(--max-width));
+  margin: 0 auto;
+}
+
+.nav-inner > .nav {
+  width: auto;
+  margin: 0;
+}
+
+.nav-booking {
+  text-transform: capitalize;
+}
+
+/* Scroll offset so sticky nav does not cover anchor targets */
+#photos,
+#offerings,
+#contact,
+#about {
+  scroll-margin-top: 84px;
+}
+
+.nav-finley {
+  position: absolute;
+  left: 0;
+  top: -10%;
+  transform: translateY(-50%);
+  width: 78px;
+  height: auto;
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 .media-strip {
@@ -233,25 +296,62 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 24%;
+  object-position: center 33%;
   background: transparent;
   border-radius: 0;
 }
 
-.stripe-frame {
-  padding: 10px 10px 14px;
-  background: #fffdf8;
+.media-frame--matrix img {
+  object-position: center 37%;
 }
 
-.micro-line,
-.trust-line {
+.media-frame--irish img {
+  object-position: center 5%;
+}
+
+.media-frame--finley img {
+  object-fit: cover;
+  object-position: center 33%;
+}
+
+.client-logos {
   width: min(calc(100% - 56px), 860px);
-  margin: 22px auto 26px;
+  margin: 22px auto 28px;
   text-align: center;
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
   background: var(--section-bg);
+}
+
+.client-logos-label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.client-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.client-logo {
+  height: 42px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  opacity: 0.75;
+  filter: grayscale(30%);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.client-logo:hover {
+  opacity: 1;
+  filter: none;
 }
 
 .finley-peek {
@@ -314,16 +414,8 @@ button {
   transform: none;
 }
 
-.trust-line {
-  margin-top: 10px;
-  margin-bottom: 26px;
-  padding: 10px 14px;
-  border-top: 0;
-  border-bottom: 0;
-  font-weight: 500;
-}
-
 .mid-banner {
+
   width: 100vw;
   margin-left: calc(50% - 50vw);
   background: var(--ink);
@@ -427,41 +519,6 @@ button {
   background: var(--section-bg);
 }
 
-.section-heading {
-  display: block;
-  margin-bottom: 22px;
-}
-
-.section-heading > div {
-  position: relative;
-  display: inline-grid;
-  gap: 4px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.section-kicker {
-  margin: 0;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.section-heading h2 {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
-  line-height: 0.82;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
 .contact-form h2 {
   margin: 0;
   font-size: clamp(2rem, 4.6vw, 3rem);
@@ -470,34 +527,92 @@ button {
   font-weight: 700;
 }
 
-#offerings.section,
-#fit.section {
+#offerings.section {
   padding: 10px 0 18px;
-}
-
-#offerings .section-heading,
-#fit .section-heading {
-  margin-bottom: 12px;
-}
-
-#offerings .section-heading h2,
-#fit .section-heading h2 {
-  font-size: clamp(1.6rem, 3.5vw, 2rem);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  text-transform: none;
 }
 
 .offerings-list {
   display: grid;
-  gap: 10px;
+  gap: 0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
 }
 
+.offering-video-strip {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 6;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 10px;
+}
+
+/* Natural ratio — no crop, video fills width at its native proportions */
+.offering-video-strip--tall {
+  aspect-ratio: unset;
+  min-height: min(95vh, 1100px);
+  height: min(95vh, 1100px);
+}
+
+.offering-video-strip--rock-people {
+  aspect-ratio: unset;
+  overflow: hidden;
+}
+
+.offering-video-strip--rock-people img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1);
+  transform-origin: center 20%;
+}
+
+.offering-video-strip--no-gap {
+  margin-bottom: 0;
+}
+
+.offering-video-strip--natural {
+  aspect-ratio: unset;
+}
+
+.offering-video-strip--natural video,
+.offering-video-strip--natural img {
+  width: 100%;
+  height: auto;
+  object-fit: unset;
+}
+
+.offering-video-strip video,
+.offering-video-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.video-strip-label {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  text-align: right;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 1px 4px rgba(0, 0, 0, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.video-strip-label strong {
+  font-weight: 600;
+}
+
 .offering-row {
   position: relative;
-  min-height: min(78vh, 860px);
+  min-height: min(95vh, 1100px);
   overflow: hidden;
   background: #000000;
 }
@@ -524,20 +639,48 @@ button {
   object-position: center;
 }
 
-.offering-row:nth-child(1) .offering-photo img,
-.offering-row:nth-child(1) .offering-photo video {
-  object-position: center 24%;
+.offering-row:nth-of-type(1) .offering-photo img,
+.offering-row:nth-of-type(1) .offering-photo video {
+  object-position: center 42%;
+  transform: scale(1.12);
 }
 
-.offering-row:nth-child(2) .offering-photo img,
-.offering-row:nth-child(2) .offering-photo video {
+.offering-row:nth-of-type(2) .offering-photo img,
+.offering-row:nth-of-type(2) .offering-photo video {
   object-position: center 34%;
   transform: scale(1.12);
 }
 
-.offering-row:nth-child(3) .offering-photo img,
-.offering-row:nth-child(3) .offering-photo video {
-  object-position: center 30%;
+.offering-row:nth-of-type(2) {
+  min-height: min(95vh, 1100px);
+  height: min(95vh, 1100px);
+}
+
+.offering-row .offering-photo--contain img,
+.offering-row .offering-photo--contain video {
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+
+.offering-row--natural {
+  min-height: unset;
+  background: transparent;
+}
+
+.offering-row--natural .offering-photo {
+  position: relative;
+  inset: unset;
+}
+
+.offering-row--natural .offering-photo img,
+.offering-row--natural .offering-photo video {
+  width: 100%;
+  height: auto;
+  object-fit: unset;
+  object-position: unset;
+  transform: none;
+  display: block;
 }
 
 .offering-copy {
@@ -573,6 +716,16 @@ button {
 
 .offering-copy p em {
   color: rgba(255, 255, 255, 0.88);
+}
+
+.offering-testimonial {
+  margin: 10px 0 0 !important;
+  color: rgba(255, 255, 255, 0.68) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.4 !important;
+  font-style: italic;
+  max-width: 52ch;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
 .info-grid {
@@ -761,6 +914,14 @@ button {
     gap: 8px 16px;
   }
 
+  .burst-badge {
+    min-width: 112px;
+    min-height: 112px;
+    font-size: 0.76rem;
+    right: 10px;
+    top: 10px;
+  }
+
   .finley-peek-inner {
     grid-template-columns: 1fr;
     gap: 0;
@@ -781,11 +942,6 @@ button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
-  .info-card {
-    grid-template-columns: minmax(0, 150px) 1fr;
-    gap: 10px;
-  }
-
   .offering-row {
     min-height: 64vh;
   }
@@ -801,24 +957,15 @@ button {
     padding-right: 14px;
   }
 
-  .hero-finley {
-    width: min(320px, 68vw);
-    bottom: -18px;
-  }
-
-  .burst-badge {
-    min-width: 90px;
-    min-height: 90px;
-    font-size: 0.64rem;
-    right: 10px;
-    top: 10px;
+  .nav-inner {
+    width: min(calc(100% - 28px), var(--max-width));
   }
 
   .hero-cta {
     bottom: 18px;
-    min-height: 46px;
-    padding: 0 18px;
-    font-size: 0.88rem;
+    min-height: 50px;
+    padding: 0 22px;
+    font-size: 1.02rem;
   }
 
   .hero-seo {
@@ -831,7 +978,8 @@ button {
   .hero-seo,
   .nav,
   .micro-line,
-  .trust-line {
+  .trust-line,
+  .client-logos {
     width: min(calc(100% - 32px), var(--max-width));
   }
 
@@ -843,9 +991,49 @@ button {
     padding: 8px 12px 10px;
   }
 
-  .nav {
-    gap: 8px 12px;
-    font-size: 0.68rem;
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-finley {
+    top: 6px;
+    left: 6px;
+    width: 52px;
+    transform: none;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-inner > .nav {
+    display: none;
+    order: 3;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px;
+    padding: 10px 0 6px;
+    border-top: 1px solid rgba(17, 17, 17, 0.12);
+    margin-top: 6px;
+  }
+
+  .nav-inner > .nav.nav-open {
+    display: flex;
+  }
+
+  .nav-inner > .nav a {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    padding: 9px 4px;
+    opacity: 0.82;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    width: 100%;
+  }
+
+  .nav-hamburger {
+    order: 2;
   }
 
   .hero-cta {
@@ -880,11 +1068,6 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .info-card {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
   .offering-row {
     min-height: 56vh;
   }
@@ -900,10 +1083,6 @@ button {
 
   .mid-banner p {
     font-size: clamp(2rem, 10vw, 6rem);
-  }
-
-  .hero-finley {
-    width: min(260px, 70vw);
   }
 }
 

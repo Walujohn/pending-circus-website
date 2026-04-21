@@ -14,16 +14,24 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="top-nav-wrap">
-      <p class="hero-seo">Live dance and performance for events in Atlanta and beyond.</p>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#video">Video</a>
-        <a href="#offerings">What we do</a>
+  <div class="top-nav-wrap" id="top">
+    <p class="hero-seo">Live dance and performance for events in Atlanta and beyond.</p>
+    <div class="nav-inner">
+      <img src="media/finley-fire.png" alt="" class="nav-finley" aria-hidden="true" />
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
-        <a href="#contact">Book</a>
+        <a href="#offerings">What We Do</a>
+        <a href="#contact" class="nav-booking">Booking</a>
+        <a href="#offerings">Videos</a>
+        <a href="#photos">Photos</a>
       </nav>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+
+  <header class="site-header">
 
     <section class="hero" aria-label="Pending Circus hero">
       <div class="hero-stage">
@@ -35,7 +43,6 @@
           decoding="async"
           fetchpriority="high"
         />
-        <img src="media/finley-fire.png" alt="" class="hero-finley" aria-hidden="true" />
         <div class="burst-badge">Now Booking 2027</div>
         <a href="#contact" class="hero-cta">Work With Us</a>
       </div>
@@ -43,8 +50,8 @@
   </header>
 
   <main>
-    <section class="media-strip" id="video" aria-label="Performance gallery">
-      <figure class="media-frame">
+    <section class="media-strip" id="photos" aria-label="Performance gallery">
+      <figure class="media-frame media-frame--irish">
         <img
           src="media/irish-sarah.png"
           alt="Sarah in a live performance portrait"
@@ -52,7 +59,7 @@
           decoding="async"
         />
       </figure>
-      <figure class="media-frame">
+      <figure class="media-frame media-frame--matrix">
         <img
           src="media/matrix.jpeg"
           alt="Sarah in the Matrix portrait"
@@ -62,32 +69,32 @@
       </figure>
       <figure class="media-frame">
         <img
-          src="media/irish-sarah.png"
-          alt="Sarah in a live performance portrait"
+          src="media/sarah-alone-studio.jpg"
+          alt="Sarah in a solo studio portrait"
           loading="lazy"
           decoding="async"
         />
       </figure>
       <figure class="media-frame">
         <img
-          src="media/matrix.jpeg"
-          alt="Sarah in the Matrix portrait"
+          src="media/redwoods.jpg"
+          alt="Sarah among the redwoods"
           loading="lazy"
           decoding="async"
         />
       </figure>
-      <figure class="media-frame">
+      <figure class="media-frame media-frame--finley">
         <img
-          src="media/irish-sarah.png"
-          alt="Sarah in a live performance portrait"
+          src="media/finley.png"
+          alt="Finley the resident dragon"
           loading="lazy"
           decoding="async"
         />
       </figure>
-      <figure class="media-frame">
+      <figure class="media-frame media-frame--finley">
         <img
-          src="media/matrix.jpeg"
-          alt="Sarah in the Matrix portrait"
+          src="media/finley-fire.png"
+          alt="Finley the resident dragon"
           loading="lazy"
           decoding="async"
         />
@@ -109,59 +116,37 @@
                 loading="lazy"
                 decoding="async"
               />
+              <p class="video-strip-label">Middle of the Night dance - in collaboration with <strong>Crux Collective Atlanta Presents: Untamed</strong></p>
             </figure>
             <div class="offering-copy">
               <h3>Dance and Partner Work</h3>
-              <p>Solo, duet, and group performance for events, stages, and live productions. Ballet, tap, jazz, Broadway, contemporary, samba, and partner dance. <em>· Best for galas, corporate events, and productions.</em></p>
+              <p>Solo, duet, and group performance for events, stages, and live productions. Ballet, tap, jazz, Broadway, contemporary and partner dance. <em>· Best for galas, corporate events, and productions.</em></p>
+              <p class="offering-testimonial">“Your talent and chemistry as a duo really shone through every movement.” — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
             </div>
           </article>
+          <div class="offering-video-strip offering-video-strip--natural offering-video-strip--no-gap">
+            <video src="media/vegas-dance.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Vegas Dance performance clip"></video>
+            <p class="video-strip-label">Vegas Dance &middot; in collaboration with <strong>Liquid Sky</strong></p>
+          </div>
+          <div class="offering-video-strip offering-video-strip--tall">
+            <video src="media/la-fitness-sarah.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Sarah in an athletic acrobatics-inspired performance clip"></video>
+          </div>
 
           <article class="offering-row">
             <figure class="offering-photo">
-              <video
-                src="media/la-fitness-sarah.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="metadata"
-                aria-label="Sarah in an athletic acrobatics-inspired performance clip"
-              ></video>
+              <video src="media/san-jose-staircase.mp4" autoplay muted loop playsinline preload="metadata" aria-label="San Jose staircase performance reel"></video>
             </figure>
             <div class="offering-copy">
-              <h3>Acrobatics and Theatre</h3>
-              <p>Physical storytelling — acro, character work, and live improvisation. <em>· Best for themed productions, immersive events, and creative collaborations.</em></p>
+              <h3>Acro and Character Work</h3>
+              <p>Circus-style acro lifts, physical storytelling, character work, and live improvisation. <em>· Best for themed productions, immersive events, and creative collaborations.</em></p>
+              <p class="offering-testimonial">“Thank you again for making our after party so memorable. We’re already thinking about future events where we can work together again.” — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
             </div>
           </article>
-
-          <article class="offering-row">
-            <figure class="offering-photo">
-              <img
-                src="media/crux.png"
-                alt="Graphic circus poster art for circus entertainment"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-            <div class="offering-copy">
-              <h3>Circus Entertainment</h3>
-              <p>Aerial, mirror suits, stilts, fire, and face painting. <em>· Best for events that need a visual showpiece.</em></p>
-            </div>
-          </article>
+          <div class="offering-video-strip offering-video-strip--tall offering-video-strip--rock-people">
+            <img src="media/rock-people.png" alt="Rock people performance" loading="lazy" decoding="async" />
+            <p class="video-strip-label">Rock People &middot; in collaboration with <strong>Mirth and Mischief</strong></p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="finley-peek" aria-label="Resident Dragon interlude">
-      <div class="container finley-peek-inner">
-        <img
-          src="media/finley-fire.png"
-          alt="Finley the resident dragon peeking out"
-          class="finley-peek-art"
-          loading="lazy"
-          decoding="async"
-        />
-        <p class="finley-peek-copy"><span class="finley-peek-label">Resident Dragon.</span><span class="finley-peek-sub">Mildly Dramatic.</span></p>
       </div>
     </section>
 
@@ -170,7 +155,7 @@
         <p class="shows-kicker">Upcoming Show</p>
         <h2 class="shows-title">Doggie Regency Ball</h2>
         <p class="shows-meta">2027 • Atlanta, Georgia</p>
-        <p class="shows-link-wrap"><a href="#contact" class="shows-link">Ask about dates</a></p>
+        <p class="shows-link-wrap"><a href="bridgerton-dogs.html" class="shows-link">Ask about dates</a></p>
 
         <div class="shows-secondary">
           <p class="shows-kicker shows-kicker-secondary">Past Show</p>
@@ -180,15 +165,22 @@
       </div>
     </section>
 
-    <p class="trust-line">Performed for Piedmont, OpenGov, Mirth and Mischief.</p>
+    <div class="client-logos" aria-label="Clients we have performed for">
+      <p class="client-logos-label">Performed for</p>
+      <div class="client-logos-row">
+        <img src="media/logo-piedmont.svg" alt="Piedmont" class="client-logo" />
+        <img src="media/open-gov.png" alt="OpenGov" class="client-logo" />
+        <img src="media/mirth-and-mischief.png" alt="Mirth and Mischief" class="client-logo" />
+      </div>
+    </div>
 
     <section class="contact-band" id="contact" aria-label="Book Pending Circus">
       <div class="container">
         <form class="contact-form" action="mailto:pendingcircus@gmail.com" method="post" enctype="text/plain" aria-label="Booking request form">
           <h2>Want us at your event?</h2>
           <blockquote class="form-testimonial">
-            <p>“They changed the whole energy of the room.”</p>
-            <cite>— Event producer, Atlanta</cite>
+            <p>“Your performance was phenomenal.”</p>
+            <cite>— Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
           </blockquote>
           <div class="form-grid">
             <label>
@@ -232,5 +224,14 @@
   <footer class="footer">
     <p>Pending Circus</p>
   </footer>
+
+  <script>
+    function toggleNav(btn) {
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      document.getElementById('primary-nav').classList.toggle('nav-open', !isOpen);
+      btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+    }
+  </script>
 </body>
 </html>
