@@ -9,21 +9,23 @@
     content="Pending Circus provides live dance, aerial, and event performance for corporate events, galas, private parties, and productions in Atlanta and beyond."
   />
   <meta name="theme-color" content="#111111" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self'; connect-src https://formspree.io; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="top-nav-wrap" id="top">
+<body id="top">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="top-nav-wrap">
     <p class="hero-seo">Live dance and performance for events in Atlanta and beyond.</p>
     <div class="nav-inner">
-      <img src="media/finley-fire.png" alt="" class="nav-finley" aria-hidden="true" />
+      <a href="#top" aria-label="Back to top"><img src="media/finley-fire.png" alt="" class="nav-finley" aria-hidden="true" /></a>
       <nav class="nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
+        <a href="#photos">Photos</a>
         <a href="#offerings">What We Do</a>
         <a href="#contact" class="nav-booking">Booking</a>
-        <a href="#offerings">Videos</a>
-        <a href="#photos">Photos</a>
+        <a href="#about">About</a>
       </nav>
       <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)">
         <span></span><span></span><span></span>
@@ -33,7 +35,7 @@
 
   <header class="site-header">
 
-    <section class="hero" aria-label="Pending Circus hero">
+    <div class="hero">
       <div class="hero-stage">
         <img
           src="media/fierce-sarah.jpg"
@@ -43,13 +45,14 @@
           decoding="async"
           fetchpriority="high"
         />
+        <h1 class="sr-only">Pending Circus</h1>
         <div class="burst-badge">Now Booking 2027</div>
         <a href="#contact" class="hero-cta">Work With Us</a>
       </div>
-    </section>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="media-strip" id="photos" aria-label="Performance gallery">
       <figure class="media-frame media-frame--irish">
         <img
@@ -83,18 +86,18 @@
           decoding="async"
         />
       </figure>
-      <figure class="media-frame media-frame--finley">
+      <figure class="media-frame media-frame--untamed">
         <img
-          src="media/finley.png"
-          alt="Finley the resident dragon"
+          src="media/untamed-art.jpg"
+          alt="Illustrated partner dance scene in warm theatrical colors"
           loading="lazy"
           decoding="async"
         />
       </figure>
-      <figure class="media-frame media-frame--finley">
+      <figure class="media-frame media-frame--ivy">
         <img
-          src="media/finley-fire.png"
-          alt="Finley the resident dragon"
+          src="media/ivy-sarah.jpeg"
+          alt="Sarah performing with ivy"
           loading="lazy"
           decoding="async"
         />
@@ -102,51 +105,56 @@
     </section>
 
     <section class="mid-banner" aria-label="Pending Circus banner">
-      <p>PENDING CIRCUS</p>
+      <p aria-hidden="true">PENDING CIRCUS</p>
     </section>
 
-    <section class="section" id="offerings">
+    <section class="section" id="offerings" aria-label="What we offer">
       <div class="container">
         <div class="offerings-list">
           <article class="offering-row">
-            <figure class="offering-photo">
-              <img
-                src="media/untamed-art.jpg"
-                alt="Illustrated partner dance scene in warm theatrical colors"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="video-strip-label">Middle of the Night dance - in collaboration with <strong>Crux Collective Atlanta Presents: Untamed</strong></p>
+            <figure class="offering-photo" aria-hidden="true">
+              <video src="media/vegas-dance.mp4" autoplay muted loop playsinline preload="metadata"></video>
             </figure>
             <div class="offering-copy">
               <h3>Dance and Partner Work</h3>
               <p>Solo, duet, and group performance for events, stages, and live productions. Ballet, tap, jazz, Broadway, contemporary and partner dance. <em>· Best for galas, corporate events, and productions.</em></p>
-              <p class="offering-testimonial">“Your talent and chemistry as a duo really shone through every movement.” — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+              <p class="offering-testimonial">"Your talent and chemistry as a duo really shone through every movement." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+              <p class="video-strip-label">Vegas Dance &middot; in collaboration with <strong>Liquid Sky</strong></p>
             </div>
           </article>
-          <div class="offering-video-strip offering-video-strip--natural offering-video-strip--no-gap">
-            <video src="media/vegas-dance.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Vegas Dance performance clip"></video>
-            <p class="video-strip-label">Vegas Dance &middot; in collaboration with <strong>Liquid Sky</strong></p>
-          </div>
-          <div class="offering-video-strip offering-video-strip--tall">
-            <video src="media/la-fitness-sarah.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Sarah in an athletic acrobatics-inspired performance clip"></video>
+          <div class="offering-video-strip offering-video-strip--tall" aria-hidden="true">
+            <video src="media/la-fitness-sarah.mp4" autoplay muted loop playsinline preload="metadata" tabindex="-1"></video>
           </div>
 
           <article class="offering-row">
-            <figure class="offering-photo">
-              <video src="media/san-jose-staircase.mp4" autoplay muted loop playsinline preload="metadata" aria-label="San Jose staircase performance reel"></video>
+            <figure class="offering-photo" aria-hidden="true">
+              <img src="media/rock-people.png" alt="" loading="lazy" decoding="async" />
             </figure>
             <div class="offering-copy">
               <h3>Acro and Character Work</h3>
               <p>Circus-style acro lifts, physical storytelling, character work, and live improvisation. <em>· Best for themed productions, immersive events, and creative collaborations.</em></p>
-              <p class="offering-testimonial">“Thank you again for making our after party so memorable. We’re already thinking about future events where we can work together again.” — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+              <p class="offering-testimonial">"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+              <p class="video-strip-label">Rock People &middot; in collaboration with <strong>Mirth and Mischief</strong></p>
             </div>
           </article>
-          <div class="offering-video-strip offering-video-strip--tall offering-video-strip--rock-people">
-            <img src="media/rock-people.png" alt="Rock people performance" loading="lazy" decoding="async" />
-            <p class="video-strip-label">Rock People &middot; in collaboration with <strong>Mirth and Mischief</strong></p>
+          <div class="offering-video-strip offering-video-strip--tall" aria-hidden="true">
+            <video src="media/san-jose-staircase.mp4" autoplay muted loop playsinline preload="metadata" tabindex="-1"></video>
           </div>
+
         </div>
+      </div>
+    </section>
+
+    <section class="finley-peek" aria-label="Resident Dragon interlude">
+      <div class="container finley-peek-inner">
+        <img
+          src="media/finley-fire.png"
+          alt="Finley the resident dragon peeking out"
+          class="finley-peek-art"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="finley-peek-copy"><span class="finley-peek-label">Resident Dragon.</span><span class="finley-peek-sub">Mildly Dramatic.</span></p>
       </div>
     </section>
 
@@ -165,18 +173,18 @@
       </div>
     </section>
 
-    <div class="client-logos" aria-label="Clients we have performed for">
+    <section class="client-logos" aria-label="Clients we have performed for">
       <p class="client-logos-label">Performed for</p>
       <div class="client-logos-row">
         <img src="media/logo-piedmont.svg" alt="Piedmont" class="client-logo" />
         <img src="media/open-gov.png" alt="OpenGov" class="client-logo" />
         <img src="media/mirth-and-mischief.png" alt="Mirth and Mischief" class="client-logo" />
       </div>
-    </div>
+    </section>
 
     <section class="contact-band" id="contact" aria-label="Book Pending Circus">
       <div class="container">
-        <form class="contact-form" action="mailto:pendingcircus@gmail.com" method="post" enctype="text/plain" aria-label="Booking request form">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mlgaplok" method="POST" aria-label="Booking request form" novalidate>
           <h2>Want us at your event?</h2>
           <blockquote class="form-testimonial">
             <p>“Your performance was phenomenal.”</p>
@@ -197,25 +205,30 @@
             </label>
             <label>
               <span>Date</span>
-              <input type="text" name="date" />
+              <input type="date" name="date" />
             </label>
             <label class="form-full">
               <span>Tell us a little</span>
               <textarea name="details"></textarea>
             </label>
           </div>
-          <button type="submit" class="form-button">Book Us</button>
+          <button type="submit" class="form-button">Contact Us</button>
         </form>
       </div>
     </section>
 
-    <section class="section closing-section" id="about">
+    <section class="section closing-section" id="about" aria-label="About Pending Circus">
       <div class="container closing-grid">
-        <div class="plain-contact">
-          <p>Pending Circus is Sarah, John and friends — Atlanta based performers available for events and productions worldwide.</p>
-          <p><a href="tel:3142767081">314 276 7081</a></p>
-          <p><a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a></p>
-          <p><a href="https://instagram.com/sarah_fiadh_pending_circus" target="_blank" rel="noreferrer">@sarah_fiadh_pending_circus</a></p>
+        <div class="about-bio">
+          <p>Pending Circus is Sarah, John, and friends — they met in a dance class and never looked back.</p>
+          <p>Sarah has been dancing since she was three years old, starting with ballet, and has spent her life as a professional dancer. John came as a student and stayed as a co-creator. For the past two years they have been performing constantly — galas, parties, clubs, productions, and everywhere in between.</p>
+          <p>They love people. That's the whole thing.</p>
+          <p>Based in Atlanta. Available everywhere.</p>
+        </div>
+        <div class="about-contact">
+          <p class="plain-contact-info">314 276 7081</p>
+          <p class="plain-contact-info"><a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a></p>
+          <p class="plain-contact-info"><a href="https://instagram.com/sarah_fiadh_pending_circus" target="_blank" rel="noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></p>
         </div>
       </div>
     </section>
@@ -225,13 +238,6 @@
     <p>Pending Circus</p>
   </footer>
 
-  <script>
-    function toggleNav(btn) {
-      var isOpen = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      document.getElementById('primary-nav').classList.toggle('nav-open', !isOpen);
-      btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
-    }
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
