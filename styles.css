@@ -551,10 +551,15 @@ button {
 }
 
 .video-strip-label {
+  position: absolute;
+  right: clamp(18px, 3.5vw, 34px);
+  bottom: clamp(18px, 3.5vw, 34px);
+  max-width: 44%;
   margin: 0;
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.82rem;
   letter-spacing: 0.06em;
+  text-align: right;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -616,7 +621,7 @@ button {
   display: grid;
   gap: 6px;
   padding: clamp(18px, 3.5vw, 34px);
-  max-width: min(760px, 100%);
+  max-width: 100%;
 }
 
 .offering-copy h3 {
@@ -841,6 +846,11 @@ button {
     gap: 8px 16px;
   }
 
+  /* Hide Finley from nav on tablet/mobile — avoid nav clutter */
+  .nav-finley {
+    display: none;
+  }
+
   .burst-badge {
     min-width: 112px;
     min-height: 112px;
@@ -865,8 +875,11 @@ button {
   .media-strip {
     gap: 8px;
   }
-  .offering-row {
+  .offering-row,
+  .offering-row:nth-of-type(2),
+  .offering-video-strip--tall {
     min-height: 64vh;
+    height: 64vh;
   }
 
   .media-frame,
@@ -898,7 +911,6 @@ button {
 
 @media (max-width: 640px) {
   .container,
-  .hero-seo,
   .nav,
   .client-logos {
     width: min(calc(100% - 32px), var(--max-width));
@@ -909,7 +921,24 @@ button {
   }
 
   .top-nav-wrap {
-    padding: 8px 12px 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  /* SEO text: single truncated line on the left, sharing the row with the hamburger */
+  .hero-seo {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    text-align: left;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-hamburger {
@@ -926,20 +955,30 @@ button {
   }
 
   .nav-inner {
-    flex-wrap: wrap;
+    flex-shrink: 0;
+    width: auto;
+    position: static;
+    flex-wrap: nowrap;
     justify-content: flex-end;
-    width: 100%;
   }
 
   .nav-inner > .nav {
     display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 50;
     order: 3;
     flex-direction: column;
     width: 100%;
     gap: 2px;
-    padding: 10px 0 6px;
+    padding: 10px 12px 12px;
+    margin: 0;
+    background: rgba(210, 241, 236, 0.97);
+    backdrop-filter: blur(10px);
     border-top: 1px solid rgba(17, 17, 17, 0.12);
-    margin-top: 6px;
+    border-bottom: 2px solid rgba(17, 17, 17, 0.14);
   }
 
   .nav-inner > .nav.nav-open {
@@ -965,8 +1004,33 @@ button {
     transform: none;
   }
 
-  .hero-seo {
+  /* Hide testimonial quote on mobile — prevents text overlap */
+  .offering-testimonial {
     display: none;
+  }
+
+  /* Collab credit: back in normal stacked flow on mobile */
+  .video-strip-label {
+    position: static;
+    text-align: left;
+    max-width: none;
+  }
+
+  /* Ensure PENDING CIRCUS banner text is never clipped */
+  .mid-banner {
+    overflow: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Give hero stage enough height so CTA button never overlaps image subject or burst badge */
+  .hero-stage {
+    min-height: 440px;
+  }
+
+  /* Stronger dark gradient so overlay text stays readable on small screens */
+  .offering-row::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.60) 38%, rgba(0, 0, 0, 0.22) 65%, transparent 100%);
   }
 
   .video-strip-label {
@@ -975,6 +1039,7 @@ button {
 
   .offering-copy {
     padding: 14px;
+    max-width: 100%;
   }
 
   .contact-form {
@@ -995,8 +1060,11 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .offering-row {
+  .offering-row,
+  .offering-row:nth-of-type(2),
+  .offering-video-strip--tall {
     min-height: 56vh;
+    height: 56vh;
   }
 
   .offering-copy h3 {
@@ -1008,8 +1076,10 @@ button {
     min-height: 180px;
   }
 
+  /* Tighter font-size at very narrow viewports so "PENDING CIRCUS" never overflows */
   .mid-banner p {
-    font-size: clamp(2rem, 10vw, 6rem);
+    font-size: clamp(1.5rem, 8.5vw, 6rem);
+    word-break: break-word;
   }
 }
 

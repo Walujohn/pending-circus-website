@@ -6,6 +6,13 @@ function toggleNav(btn) {
 }
 
 (function () {
+  var hamburger = document.querySelector('.nav-hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function () { toggleNav(this); });
+  }
+})();
+
+(function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
   form.addEventListener('submit', function (e) {
