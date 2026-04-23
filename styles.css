@@ -878,8 +878,8 @@ button {
   .offering-row,
   .offering-row:nth-of-type(2),
   .offering-video-strip--tall {
-    min-height: 64vh;
-    height: 64vh;
+    min-height: 88vh;
+    height: 88vh;
   }
 
   .media-frame,
@@ -1004,9 +1004,13 @@ button {
     transform: none;
   }
 
-  /* Hide testimonial quote on mobile — prevents text overlap */
   .offering-testimonial {
-    display: none;
+    font-size: 0.78rem;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* Collab credit: back in normal stacked flow on mobile */
@@ -1063,8 +1067,8 @@ button {
   .offering-row,
   .offering-row:nth-of-type(2),
   .offering-video-strip--tall {
-    min-height: 56vh;
-    height: 56vh;
+    min-height: 85vh;
+    height: 85vh;
   }
 
   .offering-copy h3 {
