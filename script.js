@@ -10,6 +10,17 @@ function toggleNav(btn) {
   if (hamburger) {
     hamburger.addEventListener('click', function () { toggleNav(this); });
   }
+
+  var nav = document.getElementById('primary-nav');
+  if (nav) {
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (hamburger && hamburger.getAttribute('aria-expanded') === 'true') {
+          toggleNav(hamburger);
+        }
+      });
+    });
+  }
 })();
 
 (function () {
