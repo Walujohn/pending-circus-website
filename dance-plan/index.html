@@ -6,7 +6,7 @@
   <title>Dance Plan — Pending Circus</title>
   <meta name="description" content="Pending Circus choreography planning reference." />
   <meta name="theme-color" content="#f6f0e4" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self'; frame-src https://www.instagram.com; frame-ancestors 'none'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self'; frame-ancestors 'none'; base-uri 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,16 +82,28 @@
       max-width: 540px;
     }
 
-    .dp-reel {
-      width: 100%;
-      height: 740px;
-      border: none;
-      display: block;
-      background: rgba(17, 17, 17, 0.04);
+    .dp-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      border: 2px solid rgba(17, 17, 17, 0.25);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.15s, color 0.15s;
     }
 
-    .dp-reel + .dp-reel {
-      margin-top: 24px;
+    .dp-link:hover {
+      background: var(--ink);
+      color: var(--section-bg);
+    }
+
+    .dp-link + .dp-link {
+      margin-top: 12px;
     }
 
     .dp-placeholder {
@@ -114,56 +126,26 @@
     <div class="dp-wrap">
       <a href="/" class="dp-back">← Home</a>
       <h1 class="dp-page-title">Dance Plan</h1>
-      <p class="dp-page-sub">Pending Circus — choreography reference</p>
 
       <section class="dp-section" aria-label="Intro">
         <h2 class="dp-title">Intro</h2>
-        <p class="dp-desc">Sarah's swing moves, character play, puppeteering each other back and forth, light tip-toe flirty nerd intro with something dropped.</p>
         <div class="dp-placeholder">No reel yet</div>
       </section>
 
       <section class="dp-section" aria-label="Filler tricks for moving around the room">
         <h2 class="dp-title">Filler tricks for moving around the room</h2>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DWT-_4wD5IK/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Filler tricks reel 1"
-        ></iframe>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DXHyJlKD5Dh/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Filler tricks reel 2"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DWT-_4wD5IK/" target="_blank" rel="noopener noreferrer">View reel 1 on Instagram →</a>
+        <a class="dp-link" href="https://www.instagram.com/reel/DXHyJlKD5Dh/" target="_blank" rel="noopener noreferrer">View reel 2 on Instagram →</a>
       </section>
 
       <section class="dp-section" aria-label="Dips">
         <h2 class="dp-title">Dips (numbers 3 and 5)</h2>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DW2xcSJjRNG/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Dips reel"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DW2xcSJjRNG/" target="_blank" rel="noopener noreferrer">View reel on Instagram →</a>
       </section>
 
       <section class="dp-section" aria-label="Flowy flowy">
         <h2 class="dp-title">Flowy flowy</h2>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DXTIoCaj8b6/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Flowy flowy reel"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DXTIoCaj8b6/" target="_blank" rel="noopener noreferrer">View reel on Instagram →</a>
       </section>
 
       <section class="dp-section" aria-label="Main folder lift into The Untamed lift">
@@ -173,15 +155,7 @@
 
       <section class="dp-section" aria-label="Kids gig inspiration">
         <h2 class="dp-title">Kids gig inspiration</h2>
-        <p class="dp-desc">Inside Out and character gag moments.</p>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DXwvGgDsx8V/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Kids gig inspiration reel"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DXwvGgDsx8V/" target="_blank" rel="noopener noreferrer">View reel on Instagram →</a>
       </section>
 
       <section class="dp-section" aria-label="John rolls on the ground">
@@ -191,38 +165,17 @@
 
       <section class="dp-section" aria-label="Lift with nice flow">
         <h2 class="dp-title">Lift with nice flow</h2>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DVy_HmUAaJn/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Lift with nice flow reel"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DVy_HmUAaJn/" target="_blank" rel="noopener noreferrer">View reel on Instagram →</a>
       </section>
 
       <section class="dp-section" aria-label="Backflip with sensuality">
         <h2 class="dp-title">Backflip with sensuality</h2>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DXryoEvElkr/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="Backflip with sensuality reel"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DXryoEvElkr/" target="_blank" rel="noopener noreferrer">View reel on Instagram →</a>
       </section>
 
       <section class="dp-section" aria-label="The pretty lift">
         <h2 class="dp-title">The pretty lift</h2>
-        <iframe
-          class="dp-reel"
-          src="https://www.instagram.com/reel/DW4eFpSh9p4/embed/"
-          loading="lazy"
-          allowtransparency="true"
-          allowfullscreen
-          title="The pretty lift reel"
-        ></iframe>
+        <a class="dp-link" href="https://www.instagram.com/reel/DW4eFpSh9p4/" target="_blank" rel="noopener noreferrer">View reel on Instagram →</a>
       </section>
 
     </div>
