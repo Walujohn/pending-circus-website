@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pending Circus — Custom Characters, Mirror Suits & Duo Performance | Atlanta</title>
-  <meta name="description" content="Pending Circus — custom characters and kids entertainment, mirror suits, and duo performance for events in Atlanta and beyond. Costumes designed and built in-house." />
+  <title>Pending Circus — Characters, Duo Performance &amp; Mirror Suits | Atlanta</title>
+  <!-- BEFORE YOU PUSH:
+       1. Add media/costume-sketch.jpg (Sarah's construction drawing) — or delete the
+          section marked "HOW A CHARACTER GETS MADE" below, or the image will break.
+       2. Replace INSTAGRAM-HANDLE (two places: the about line and nothing else).
+       3. Rates: search SET-RATE — four numbers.
+       4. This file replaces index.html at the repo root. partners/index.html is new.
+       Cut from the old page, still in /media if you want any back: sexy-wings, sarah-club,
+       sarah-alone-studio, echo-park-sarah, fierce-sarah, montreal-table, lollipop,
+       vegas-dance.mp4, la-fitness-sarah.mp4, sarah-lollipop.mov, and the Firefly clip. -->
+  <meta name="description" content="Pending Circus — an Atlanta duo. Characters brought to life for kids and crowds, duo performance, and premium costumes and equipment we own and run ourselves." />
   <meta name="theme-color" content="#F6F0E4" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https://formspree.io; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -18,35 +27,27 @@
       --muted:#5C564E;
       --teal:#7ED7CF;
       --pink:#FFD8EF;
-      --rule:#141110;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
     html{scroll-behavior:smooth}
     @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
     body{
-      background:var(--paper);
-      color:var(--ink);
+      background:var(--paper);color:var(--ink);
       font-family:"Oswald","Arial Narrow",Arial,sans-serif;
-      line-height:1.5;
-      font-size:1.05rem;
+      line-height:1.5;font-size:1.05rem;
     }
     img,video{max-width:100%;display:block}
     a{color:var(--ink)}
     :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
     .skip-link{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:.7rem 1.2rem;font-weight:600;text-decoration:none;z-index:10}
     .skip-link:focus{left:0;top:0}
-
     .wrap{max-width:56rem;margin:0 auto;padding:0 1.25rem}
 
     /* ── Playbill masthead ── */
     .mast{border-bottom:4px double var(--ink);padding:1.6rem 0 1.2rem;text-align:center}
     .mast-kicker{font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
-    .mast h1{
-      font-size:clamp(2.6rem,10vw,5.5rem);
-      font-weight:700;text-transform:uppercase;
-      letter-spacing:.06em;line-height:1;margin:.35rem 0 .5rem;
-    }
+    .mast h1{font-size:clamp(2.6rem,10vw,5.5rem);font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1;margin:.35rem 0 .5rem}
     .mast-sub{font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
     .mast nav{margin-top:1.1rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.6rem}
     .mast nav a{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600}
@@ -69,25 +70,24 @@
         display:block;width:100%;text-align:center;
         font-family:"Oswald","Arial Narrow",Arial,sans-serif;
         font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-        text-decoration:none;color:var(--ink);
-        padding:.85rem 1rem;
+        text-decoration:none;color:var(--ink);padding:.85rem 1rem;
       }
     }
 
     /* ── Hero ── */
     .hero{padding:2rem 0 0;text-align:center}
     .hero-frame{border:3px solid var(--ink);display:inline-block;max-width:100%;position:relative}
-    .hero-frame img{max-height:72svh;width:auto;max-width:100%}
+    .hero-frame img{max-height:66svh;width:auto;max-width:100%}
     .badge{
-      position:absolute;top:-14px;right:-10px;
-      background:var(--teal);border:2px solid var(--ink);
+      position:absolute;top:-14px;right:-10px;background:var(--teal);border:2px solid var(--ink);
       padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;
       transform:rotate(3deg);
     }
+    .thesis{max-width:34rem;margin:1.5rem auto 0;font-size:1.05rem;color:#2E2A26}
+    .thesis b{border-bottom:2px solid var(--teal)}
     .hero-cta{
-      display:inline-block;margin:1.4rem auto 0;
-      background:var(--ink);color:var(--paper);text-decoration:none;
-      font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      display:inline-block;margin:1.4rem auto 0;background:var(--ink);color:var(--paper);
+      text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
       padding:.85rem 2rem;border:3px solid var(--ink);
     }
     .hero-cta:hover{background:transparent;color:var(--ink)}
@@ -96,34 +96,25 @@
     .marquee{
       border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
       margin:2.5rem 0;padding:.55rem 0;overflow:hidden;white-space:nowrap;
-      font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:1rem;
-      text-align:center;
+      font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:1rem;text-align:center;
     }
 
     /* ── Sections ── */
     section{padding:2.6rem 0}
     .sec-head{text-align:center;margin-bottom:1.8rem}
-    .sec-head h2{
-      font-size:clamp(1.5rem,4.5vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;font-weight:700;
-    }
+    .sec-head h2{font-size:clamp(1.5rem,4.5vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
     .sec-head .star{color:var(--muted);letter-spacing:.5em;font-size:.9rem;display:block;margin-top:.25rem}
+    .sec-head .lede{font-size:.95rem;color:var(--muted);max-width:34rem;margin:.7rem auto 0}
 
-    /* ── Gallery grid ── */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:1rem}
-    .grid figure{border:3px solid var(--ink);background:#fff}
-    .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
-    .grid .vid-fig{grid-column:span 2}
-    .grid video{width:100%;aspect-ratio:16/9;object-fit:cover}
-    @media (max-width:26rem){.grid .vid-fig{grid-column:span 1}}
-
-    /* ── Offerings ── */
+    /* ── The three lanes ── */
     .offer{border:3px solid var(--ink);background:#fff;margin-bottom:1.6rem;display:grid;grid-template-columns:minmax(9rem,14rem) 1fr}
     .offer figure{border-right:3px solid var(--ink)}
     .offer figure img,.offer figure video{width:100%;height:100%;object-fit:cover}
     .offer-copy{padding:1.3rem 1.4rem}
+    .offer-copy .lane{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.2rem}
     .offer-copy h3{font-size:1.25rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
     .offer-copy p{font-size:.98rem;color:#2E2A26}
-    .offer-copy .best{display:block;margin-top:.5rem;font-size:.85rem;color:var(--muted);letter-spacing:.03em}
+    .offer-copy .best{display:block;margin-top:.5rem;font-size:.85rem;color:var(--muted)}
     .offer-copy .quote{margin-top:.7rem;font-size:.88rem;color:var(--muted);border-left:3px solid var(--teal);padding-left:.7rem}
     @media (max-width:38rem){
       .offer{grid-template-columns:1fr}
@@ -131,31 +122,43 @@
       .offer figure img,.offer figure video{aspect-ratio:16/9;height:auto}
     }
 
+    /* ── How a character gets made ── */
+    .make-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .make-grid figure{border:3px solid var(--ink);background:#fff}
+    .make-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .make-grid figcaption{border-top:3px solid var(--ink);padding:.5rem .7rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center}
+    .make-note{text-align:center;margin-top:1rem;font-size:.95rem}
+    @media (max-width:38rem){.make-grid{grid-template-columns:1fr}}
+
+    /* ── Gallery ── */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:1rem}
+    .grid figure{border:3px solid var(--ink);background:#fff}
+    .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
     /* ── Kelly quote band ── */
     .kelly{background:var(--pink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
     .kelly blockquote{max-width:46rem;margin:0 auto;font-size:1.05rem;line-height:1.6}
     .kelly cite{display:block;margin-top:1rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
 
     /* ── Rate bill ── */
-    .bill{
-      max-width:40rem;margin:0 auto;background:#fff;
-      border:3px solid var(--ink);padding:1.8rem 1.6rem 1.3rem;
-    }
+    .bill{max-width:40rem;margin:0 auto;background:#fff;border:3px solid var(--ink);padding:1.8rem 1.6rem 1.3rem}
     .bill-head{text-align:center;border-bottom:4px double var(--ink);padding-bottom:.9rem;margin-bottom:1rem}
     .bill-head h2{font-size:1.35rem;text-transform:uppercase;letter-spacing:.18em}
     .bill-head p{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    .bill-lane{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink);padding-bottom:.2rem;margin:1.1rem 0 .5rem}
+    .bill-lane:first-of-type{margin-top:0}
     .bill-row{display:flex;align-items:baseline;gap:.6rem;padding:.5rem 0}
     .bill-row .name{font-weight:600;white-space:nowrap}
     .bill-row .dots{flex:1;border-bottom:2px dotted var(--muted);transform:translateY(-4px)}
     .bill-row .price{font-weight:700;white-space:nowrap}
     .bill-note{font-size:.85rem;color:var(--muted);margin:.1rem 0 .45rem;line-height:1.4}
-    .bill-fine{border-top:1px solid var(--rule);margin-top:1rem;padding-top:.9rem;font-size:.82rem;color:var(--muted);text-align:center}
+    .bill-partner{margin-top:1.3rem;border:3px solid var(--ink);background:var(--teal);padding:.9rem 1rem;text-align:center}
+    .bill-partner h3{font-size:1rem;text-transform:uppercase;letter-spacing:.15em}
+    .bill-partner p{font-size:.9rem;margin-top:.2rem}
+    .bill-partner a{font-weight:700}
+    .bill-fine{border-top:1px solid var(--ink);margin-top:1rem;padding-top:.9rem;font-size:.82rem;color:var(--muted);text-align:center}
 
-    /* ── Shows / logos ── */
-    .shows{text-align:center}
-    .shows h3{font-size:1.6rem;text-transform:uppercase;letter-spacing:.1em}
-    .shows .meta{color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-size:.85rem}
-    .shows .past{margin-top:1.6rem}
+    /* ── Logos ── */
     .logos{text-align:center;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding:1.6rem 0}
     .logos p{font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
     .logos-row{display:flex;justify-content:center;align-items:center;gap:2.4rem;flex-wrap:wrap}
@@ -167,17 +170,9 @@
     .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
     .fgrid label{display:flex;flex-direction:column;gap:.25rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
     .fgrid .full{grid-column:1/-1}
-    .fgrid input,.fgrid textarea{
-      font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;
-      border:2px solid var(--ink);background:var(--paper);padding:.55rem .6rem;
-    }
+    .fgrid input,.fgrid textarea{font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;border:2px solid var(--ink);background:var(--paper);padding:.55rem .6rem}
     .fgrid textarea{min-height:6rem;resize:vertical}
-    .fbtn{
-      margin-top:1.1rem;width:100%;cursor:pointer;
-      background:var(--teal);border:3px solid var(--ink);
-      font:inherit;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-      padding:.85rem;
-    }
+    .fbtn{margin-top:1.1rem;width:100%;cursor:pointer;background:var(--teal);border:3px solid var(--ink);font:inherit;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.85rem}
     .fbtn:hover{background:var(--ink);color:var(--paper)}
     .form-thankyou{text-align:center;font-size:1.1rem;padding:1.5rem 0}
     @media (max-width:32rem){.fgrid{grid-template-columns:1fr}}
@@ -198,13 +193,12 @@
   <header class="mast wrap">
     <p class="mast-kicker">Atlanta, Georgia ✶ Live Performance</p>
     <h1>Pending Circus</h1>
-    <p class="mast-sub">Custom Characters ✶ Mirror Suits ✶ Duo Spectacle</p>
+    <p class="mast-sub">Characters ✶ Duo Performance ✶ Mirror Suits &amp; Stilts</p>
     <nav aria-label="Primary navigation">
-      <a href="#gallery">Gallery</a>
       <a href="#offerings">What We Do</a>
       <a href="#rates">Rates</a>
+      <a href="partners/">Partners</a>
       <a href="#contact" class="book">Booking</a>
-      <a href="#about">About</a>
     </nav>
   </header>
 
@@ -214,66 +208,31 @@
         <img src="media/royal-ballet-dancer.jpg" alt="Pending Circus performer in a dramatic dance portrait" loading="eager" decoding="async" fetchpriority="high" />
         <span class="badge">Now Booking</span>
       </div>
+      <p class="thesis">
+        Two performers in Atlanta who are <b>good with kids and good in a crowd</b>.
+        We bring characters to life, work as a duo, make and modify our own costumes,
+        and own our equipment — so you book two people, not a production.
+      </p>
       <div><a href="#contact" class="hero-cta">Work With Us</a></div>
     </div>
 
     <p class="marquee" aria-hidden="true">✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶</p>
 
-    <section id="gallery" aria-label="Performance gallery">
+    <section id="offerings" aria-label="What we do">
       <div class="wrap">
-        <div class="sec-head"><h2>Gallery</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
-        <div class="grid">
-          <figure><img src="media/designer-ballerina-costume.jpg" alt="Sarah in a designer ballerina costume built in-house" loading="eager" decoding="async" /></figure>
-          <figure><img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume, designed and built by Pending Circus" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/pink-dragonfly-costume.jpg" alt="Pink dragonfly character costume made in-house" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/mermaid.jpg" alt="Mermaid character performance" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/butterfly-wings.jpg" alt="Sarah performing in handmade butterfly wings" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/fierce-sarah.jpg" alt="Sarah in a fierce performance pose" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/lollipop.webp" alt="Sarah performing on a lollipop apparatus" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings performance" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/sexy-wings.jpg" alt="Sarah in dramatic costume wings" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/echo-park-sarah.jpg" alt="Sarah performing outdoors" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/sarah-alone-studio.jpg" alt="Sarah in the studio" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/sarah-club.jpg" alt="Sarah performing at a club event" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/ivy-sarah.jpeg" alt="Sarah in an ivy-themed costume" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/montreal-table.jpg" alt="Performance in Montreal" loading="lazy" decoding="async" /></figure>
-          <figure class="vid-fig">
-            <video src="media/vegas-dance.mp4" controls muted playsinline preload="none" aria-label="Vegas dance performance clip"></video>
-          </figure>
-          <figure class="vid-fig">
-            <video src="media/la-fitness-sarah.mp4" controls muted playsinline preload="none" aria-label="Sarah dance performance reel"></video>
-          </figure>
-          <figure class="vid-fig">
-            <video src="media/sarah-lollipop.mov" controls muted playsinline preload="none" aria-label="Sarah performing on the lollipop apparatus"></video>
-          </figure>
-          <figure class="vid-fig">
-            <video src="media/Firefly a beautiful and fearless red haired circus performer woman performing on a lollipop apparatu.mp4" controls muted playsinline preload="none" aria-label="Sarah performing on the lollipop apparatus, outdoor"></video>
-          </figure>
+        <div class="sec-head">
+          <h2>What We Do</h2>
+          <span class="star" aria-hidden="true">✶ ✶ ✶</span>
+          <p class="lede">Three things, and we do all three ourselves.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="offerings" aria-label="What we offer">
-      <div class="wrap">
-        <div class="sec-head"><h2>What We Do</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
 
         <article class="offer">
           <figure aria-hidden="true"><img src="media/rock-people.png" alt="" loading="lazy" decoding="async" /></figure>
           <div class="offer-copy">
-            <h3>Custom Characters &amp; Kids Entertainment</h3>
-            <p>Original characters, designed and built in-house — dream one up and we'll bring it to life. Interactive character visits, duo shows, games, and photo moments for birthdays, festivals, libraries, schools, and hospital &amp; community events. Every costume is ours: original, handmade, and unlike anything off a rack.</p>
-            <span class="best">Best for kids' events, family festivals, and organizations that book entertainment every season.</span>
-          </div>
-        </article>
-
-        <article class="offer">
-          <figure aria-hidden="true"><img src="media/mirror-suit-example.jpg" alt="" loading="lazy" decoding="async" /></figure>
-          <div class="offer-copy">
-            <h3>Mirror Suits &amp; Duo Spectacle</h3>
-            <p>Walkaround mirror suit performance for galas, openings, and corporate events — the photo moment your guests will post. Ballet, contemporary, partner work, and improvisation in costume.</p>
-            <span class="best">Best for galas, corporate events, and brand activations.</span>
-            <p class="quote">"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+            <span class="lane">One</span>
+            <h3>Characters &amp; Kids</h3>
+            <p>Bringing a character to life is the part that's hard to hire for — the improvising, the staying in it, the kid who won't let go of your hand. That's what we're good at. Tell us your theme and we'll build or build out a costume for it, then show up in character with games, stories, and photo time.</p>
+            <span class="best">For birthdays, libraries, schools, festivals, hospitals, and family days.</span>
           </div>
         </article>
 
@@ -282,12 +241,61 @@
             <video src="media/san-jose-staircase.mp4" controls muted playsinline preload="none" aria-label="Duo staircase performance video"></video>
           </figure>
           <div class="offer-copy">
-            <h3>Movement Art &amp; Duo Dance</h3>
-            <p>Duo acts, dance, skits, and circus-style lifts — ballet, tap, jazz, broadway, contemporary, and partner dance. Seen in Crux Collective Atlanta Presents: Untamed.</p>
-            <span class="best">Best for themed productions, immersive events, and creative collaborations.</span>
+            <span class="lane">Two</span>
+            <h3>Duo Performance</h3>
+            <p>Two performers who work together, not two acts sharing a calendar. Paired characters, ambient walkaround, partner lifts, dance and movement — trained, rehearsed, and improvised live when the room asks for something else.</p>
+            <span class="best">For galas, openings, corporate events, festivals, and productions.</span>
             <p class="quote">"Your talent and chemistry as a duo really shone through every movement." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
           </div>
         </article>
+
+        <article class="offer">
+          <figure aria-hidden="true"><img src="media/mirror-suit-example.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <div class="offer-copy">
+            <span class="lane">Three</span>
+            <h3>Costumes, Gear &amp; Production</h3>
+            <p>The mirror suit and the stilt costumes are ours — premium pieces most performers rent, if they can get them at all. Sarah sews, so a costume can be made or altered for your theme. And we self-manage: we bring it, run it, strike it, and produce whole events ourselves, including our own — like the Doggie Regency Ball coming to Atlanta in 2027.</p>
+            <span class="best">For producers, other performers, and anyone who needs the whole thing handled.</span>
+            <p class="quote">"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WE MAKE THE COSTUMES — needs media/costume-sketch.jpg -->
+    <section aria-labelledby="make-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="make-h">We Make the Costumes</h2>
+          <span class="star" aria-hidden="true">✶ ✶ ✶</span>
+        </div>
+        <div class="make-grid">
+          <figure>
+            <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn by Sarah before the build" loading="lazy" decoding="async" />
+            <figcaption>The drawing</figcaption>
+          </figure>
+          <figure>
+            <img src="media/pink-dragonfly-costume.jpg" alt="The finished pink dragonfly costume, made in-house" loading="lazy" decoding="async" />
+            <figcaption>The costume</figcaption>
+          </figure>
+        </div>
+        <p class="make-note">Some start as a drawing. Some start as something we take apart and rebuild. Either way it gets made here — so the character can be whatever your event needs.</p>
+      </div>
+    </section>
+
+    <section id="gallery" aria-label="Performance gallery">
+      <div class="wrap">
+        <div class="sec-head"><h2>Gallery</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+        <div class="grid">
+          <figure><img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="eager" decoding="async" /></figure>
+          <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume, designed and built by Pending Circus" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/mermaid.jpg" alt="Mermaid character performance" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/butterfly-wings.jpg" alt="Performing in handmade butterfly wings" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings performance at night" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/designer-ballerina-costume.jpg" alt="Designer ballerina costume built in-house" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/ivy-sarah.jpeg" alt="Ivy-themed character costume" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/graveyard-rocks.jpg" alt="Rock People characters performing on location" loading="lazy" decoding="async" /></figure>
+        </div>
       </div>
     </section>
 
@@ -308,45 +316,32 @@
             <p>Flat rates ✶ In writing ✶ Before we begin</p>
           </div>
 
+          <p class="bill-lane">One ✶ Characters &amp; Kids</p>
           <div class="bill-row"><span class="name">Character visit</span><span class="dots" aria-hidden="true"></span><span class="price">$250</span></div>
-          <p class="bill-note">One performer in a custom character · up to 60 min · games, story, photos</p>
-
+          <p class="bill-note">One of us in a custom character · up to 60 min · games, story, photos</p>
           <div class="bill-row"><span class="name">Duo character party</span><span class="dots" aria-hidden="true"></span><span class="price">$425</span></div>
           <p class="bill-note">Both of us, in character · 90 min · show + games + photo time</p>
 
-          <div class="bill-row"><span class="name">Mirror suit appearance</span><span class="dots" aria-hidden="true"></span><span class="price">$400</span></div>
-          <p class="bill-note">Walkaround spectacle · up to 2 hours · the photo moment of the night</p>
-
+          <p class="bill-lane">Two ✶ Duo Performance</p>
           <div class="bill-row"><span class="name">Duo spectacle / ambient</span><span class="dots" aria-hidden="true"></span><span class="price">$500</span></div>
-          <p class="bill-note">Dance, characters, lifts, walkaround · up to 2 hours</p>
+          <p class="bill-note">Paired characters, dance, lifts, walkaround · up to 2 hours</p>
 
-          <div class="bill-row"><span class="name">Festivals &amp; productions</span><span class="dots" aria-hidden="true"></span><span class="price">Let's talk</span></div>
-          <p class="bill-note">Day rates and multi-performer casts</p>
-
-          <div class="bill-row"><span class="name">Annual entertainment partner</span><span class="dots" aria-hidden="true"></span><span class="price">Let's talk</span></div>
-          <p class="bill-note">Your seasonal events, covered — 4+ dates a year, priority booking, package rate</p>
-
-          <div class="bill-row"><span class="name">Custom costume commissions</span><span class="dots" aria-hidden="true"></span><span class="price">By quote</span></div>
-          <p class="bill-note">Designed and built by Sarah — characters, mascots, stage pieces</p>
-
+          <p class="bill-lane">Three ✶ Costumes, Gear &amp; Production</p>
+          <div class="bill-row"><span class="name">Mirror suit or stilt appearance</span><span class="dots" aria-hidden="true"></span><span class="price">$400</span></div>
+          <p class="bill-note">Our premium pieces, worn and run by us · up to 2 hours</p>
+          <div class="bill-row"><span class="name">Costume commission</span><span class="dots" aria-hidden="true"></span><span class="price">By quote</span></div>
+          <p class="bill-note">Made or altered for your theme — characters, mascots, stage pieces, yours to keep</p>
           <div class="bill-row"><span class="name">Equipment rental</span><span class="dots" aria-hidden="true"></span><span class="price">By quote</span></div>
-          <p class="bill-note">Mirror suit &amp; apparatus · experienced performers only</p>
+          <p class="bill-note">Mirror suit, stilts &amp; apparatus · experienced performers only</p>
+          <div class="bill-row"><span class="name">Festivals &amp; full productions</span><span class="dots" aria-hidden="true"></span><span class="price">Let's talk</span></div>
+          <p class="bill-note">Day rates, multi-performer casts, and events we run end to end</p>
 
-          <p class="bill-fine">Fully self-managed: we bring, run, and strike our own equipment.<br />Travel beyond metro Atlanta quoted plainly, in writing.</p>
-        </div>
-      </div>
-    </section>
+          <div class="bill-partner">
+            <h3>Cover Your Whole Year</h3>
+            <p>Four or more dates, one contract, one rate. <a href="partners/">See the partner package →</a></p>
+          </div>
 
-    <section class="shows" aria-label="Upcoming shows and past shows">
-      <div class="wrap">
-        <div class="sec-head"><h2>Shows</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
-        <p class="meta">Upcoming</p>
-        <h3>East Coast Stairwells</h3>
-        <p class="meta">2026 · Atlanta, Georgia · Ask about dates</p>
-        <div class="past">
-          <p class="meta">Past</p>
-          <h3>Canton House Masquerade Dance</h3>
-          <p class="meta">Atlanta, Georgia</p>
+          <p class="bill-fine">We bring, run, and strike our own equipment. Travel beyond metro Atlanta quoted plainly, in writing.</p>
         </div>
       </div>
     </section>
@@ -380,10 +375,9 @@
       <div class="wrap about">
         <div class="sec-head"><h2>About</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <p>Pending Circus is Sarah, John, and friends — they met in a dance class and never looked back.</p>
-        <p>Sarah has been dancing since she was three years old, starting with ballet, and has spent her life as a professional dancer, choreographer, instructor and performer. John came as a student and stayed as a co-creator. For the past two years they have been performing constantly — galas, parties, clubs, productions, and everywhere in between.</p>
-        <p>Sarah designs and builds our costumes in-house, and we manage, transport, and run our own equipment — you book us, we handle the rest.</p>
+        <p>Sarah has danced since she was three, and works as a professional dancer, choreographer, and instructor. John came as a student and stayed as a co-creator. For two years they've performed constantly — galas, parties, clubs, festivals, and productions — sewing, rebuilding, and hauling their own costumes the whole way.</p>
         <p>Based in Atlanta. Available everywhere.</p>
-        <p class="contact">314 276 7081 · <a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a> · <a href="https://instagram.com/sarah_fiadh_pending_circus" target="_blank" rel="noreferrer">Instagram</a></p>
+        <p class="contact">314 276 7081 · <a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a> · <a href="https://instagram.com/INSTAGRAM-HANDLE" target="_blank" rel="noreferrer">Instagram</a></p>
         <div class="finley">
           <img src="media/finley-fire.png" alt="Finley the resident dragon" loading="lazy" decoding="async" />
           <p>Resident Dragon · Mildly Dramatic</p>
