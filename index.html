@@ -52,6 +52,27 @@
     .mast nav a{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600}
     .mast nav a:hover{text-decoration:underline;text-underline-offset:4px}
     .mast nav .book{background:var(--teal);padding:.1rem .7rem;border:2px solid var(--ink)}
+    @media (max-width:500px){
+      .mast nav{display:none}
+      body{padding-bottom:3.6rem}
+    }
+
+    /* ── Sticky mobile book bar ── */
+    .sticky-book{display:none}
+    @media (max-width:500px){
+      .sticky-book{
+        display:flex;position:fixed;bottom:0;left:0;right:0;z-index:100;
+        background:var(--teal);border-top:3px solid var(--ink);
+        align-items:center;justify-content:center;
+      }
+      .sticky-book a{
+        display:block;width:100%;text-align:center;
+        font-family:"Oswald","Arial Narrow",Arial,sans-serif;
+        font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+        text-decoration:none;color:var(--ink);
+        padding:.85rem 1rem;
+      }
+    }
 
     /* ── Hero ── */
     .hero{padding:2rem 0 0;text-align:center}
@@ -374,6 +395,10 @@
   <footer>
     <p>Pending Circus LLC ✶ Atlanta</p>
   </footer>
+
+  <div class="sticky-book" aria-label="Book Pending Circus">
+    <a href="#contact">Book Us</a>
+  </div>
 
   <script>
     (function () {
