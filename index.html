@@ -3,100 +3,406 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pending Circus</title>
-  <meta
-    name="description"
-    content="Pending Circus — live dance and performance. Coming soon."
-  />
-  <meta name="theme-color" content="#f6f0e4" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self'; frame-ancestors 'none'; base-uri 'self'" />
+  <title>Pending Circus — Custom Characters, Mirror Suits & Duo Performance | Atlanta</title>
+  <meta name="description" content="Pending Circus — custom characters and kids entertainment, mirror suits, and duo performance for events in Atlanta and beyond. Costumes designed and built in-house." />
+  <meta name="theme-color" content="#F6F0E4" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https://formspree.io; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" />
   <style>
-    body {
-      background: var(--section-bg);
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    :root{
+      --paper:#F6F0E4;
+      --ink:#141110;
+      --muted:#5C564E;
+      --teal:#7ED7CF;
+      --pink:#FFD8EF;
+      --rule:#141110;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+    body{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:"Oswald","Arial Narrow",Arial,sans-serif;
+      line-height:1.5;
+      font-size:1.05rem;
+    }
+    img,video{max-width:100%;display:block}
+    a{color:var(--ink)}
+    :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+    .skip-link{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:.7rem 1.2rem;font-weight:600;text-decoration:none;z-index:10}
+    .skip-link:focus{left:0;top:0}
+
+    .wrap{max-width:56rem;margin:0 auto;padding:0 1.25rem}
+
+    /* ── Playbill masthead ── */
+    .mast{border-bottom:4px double var(--ink);padding:1.6rem 0 1.2rem;text-align:center}
+    .mast-kicker{font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+    .mast h1{
+      font-size:clamp(2.6rem,10vw,5.5rem);
+      font-weight:700;text-transform:uppercase;
+      letter-spacing:.06em;line-height:1;margin:.35rem 0 .5rem;
+    }
+    .mast-sub{font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+    .mast nav{margin-top:1.1rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.6rem}
+    .mast nav a{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600}
+    .mast nav a:hover{text-decoration:underline;text-underline-offset:4px}
+    .mast nav .book{background:var(--teal);padding:.1rem .7rem;border:2px solid var(--ink)}
+
+    /* ── Hero ── */
+    .hero{padding:2rem 0 0;text-align:center}
+    .hero-frame{border:3px solid var(--ink);display:inline-block;max-width:100%;position:relative}
+    .hero-frame img{max-height:72svh;width:auto;max-width:100%}
+    .badge{
+      position:absolute;top:-14px;right:-10px;
+      background:var(--teal);border:2px solid var(--ink);
+      padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;
+      transform:rotate(3deg);
+    }
+    .hero-cta{
+      display:inline-block;margin:1.4rem auto 0;
+      background:var(--ink);color:var(--paper);text-decoration:none;
+      font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      padding:.85rem 2rem;border:3px solid var(--ink);
+    }
+    .hero-cta:hover{background:transparent;color:var(--ink)}
+
+    /* ── Marquee band ── */
+    .marquee{
+      border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+      margin:2.5rem 0;padding:.55rem 0;overflow:hidden;white-space:nowrap;
+      font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:1rem;
+      text-align:center;
     }
 
-    .cs-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 24px 64px;
-      text-align: center;
+    /* ── Sections ── */
+    section{padding:2.6rem 0}
+    .sec-head{text-align:center;margin-bottom:1.8rem}
+    .sec-head h2{
+      font-size:clamp(1.5rem,4.5vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;font-weight:700;
+    }
+    .sec-head .star{color:var(--muted);letter-spacing:.5em;font-size:.9rem;display:block;margin-top:.25rem}
+
+    /* ── Gallery grid ── */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:1rem}
+    .grid figure{border:3px solid var(--ink);background:#fff}
+    .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+    .grid .vid-fig{grid-column:span 2}
+    .grid video{width:100%;aspect-ratio:16/9;object-fit:cover}
+    @media (max-width:26rem){.grid .vid-fig{grid-column:span 1}}
+
+    /* ── Offerings ── */
+    .offer{border:3px solid var(--ink);background:#fff;margin-bottom:1.6rem;display:grid;grid-template-columns:minmax(9rem,14rem) 1fr}
+    .offer figure{border-right:3px solid var(--ink)}
+    .offer figure img,.offer figure video{width:100%;height:100%;object-fit:cover}
+    .offer-copy{padding:1.3rem 1.4rem}
+    .offer-copy h3{font-size:1.25rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+    .offer-copy p{font-size:.98rem;color:#2E2A26}
+    .offer-copy .best{display:block;margin-top:.5rem;font-size:.85rem;color:var(--muted);letter-spacing:.03em}
+    .offer-copy .quote{margin-top:.7rem;font-size:.88rem;color:var(--muted);border-left:3px solid var(--teal);padding-left:.7rem}
+    @media (max-width:38rem){
+      .offer{grid-template-columns:1fr}
+      .offer figure{border-right:none;border-bottom:3px solid var(--ink)}
+      .offer figure img,.offer figure video{aspect-ratio:16/9;height:auto}
     }
 
-    .cs-finley {
-      width: clamp(160px, 38vw, 260px);
-      height: auto;
-      margin-bottom: 36px;
-    }
+    /* ── Kelly quote band ── */
+    .kelly{background:var(--pink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+    .kelly blockquote{max-width:46rem;margin:0 auto;font-size:1.05rem;line-height:1.6}
+    .kelly cite{display:block;margin-top:1rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
 
-    .cs-banner {
-      font-size: clamp(2.6rem, 11vw, 7rem);
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      line-height: 1;
-      margin: 0 0 16px;
+    /* ── Rate bill ── */
+    .bill{
+      max-width:40rem;margin:0 auto;background:#fff;
+      border:3px solid var(--ink);padding:1.8rem 1.6rem 1.3rem;
     }
+    .bill-head{text-align:center;border-bottom:4px double var(--ink);padding-bottom:.9rem;margin-bottom:1rem}
+    .bill-head h2{font-size:1.35rem;text-transform:uppercase;letter-spacing:.18em}
+    .bill-head p{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    .bill-row{display:flex;align-items:baseline;gap:.6rem;padding:.5rem 0}
+    .bill-row .name{font-weight:600;white-space:nowrap}
+    .bill-row .dots{flex:1;border-bottom:2px dotted var(--muted);transform:translateY(-4px)}
+    .bill-row .price{font-weight:700;white-space:nowrap}
+    .bill-note{font-size:.85rem;color:var(--muted);margin:.1rem 0 .45rem;line-height:1.4}
+    .bill-fine{border-top:1px solid var(--rule);margin-top:1rem;padding-top:.9rem;font-size:.82rem;color:var(--muted);text-align:center}
 
-    .cs-tagline {
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      margin: 0 0 48px;
-    }
+    /* ── Shows / logos ── */
+    .shows{text-align:center}
+    .shows h3{font-size:1.6rem;text-transform:uppercase;letter-spacing:.1em}
+    .shows .meta{color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-size:.85rem}
+    .shows .past{margin-top:1.6rem}
+    .logos{text-align:center;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding:1.6rem 0}
+    .logos p{font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+    .logos-row{display:flex;justify-content:center;align-items:center;gap:2.4rem;flex-wrap:wrap}
+    .logos-row img{height:2.1rem;width:auto;filter:grayscale(1)}
 
-    .cs-contact {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
+    /* ── Form ── */
+    .book-form{max-width:34rem;margin:0 auto;background:#fff;border:3px solid var(--ink);padding:1.6rem 1.4rem}
+    .book-form h2{text-align:center;font-size:1.3rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1.1rem}
+    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    .fgrid label{display:flex;flex-direction:column;gap:.25rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+    .fgrid .full{grid-column:1/-1}
+    .fgrid input,.fgrid textarea{
+      font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;
+      border:2px solid var(--ink);background:var(--paper);padding:.55rem .6rem;
     }
+    .fgrid textarea{min-height:6rem;resize:vertical}
+    .fbtn{
+      margin-top:1.1rem;width:100%;cursor:pointer;
+      background:var(--teal);border:3px solid var(--ink);
+      font:inherit;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+      padding:.85rem;
+    }
+    .fbtn:hover{background:var(--ink);color:var(--paper)}
+    .form-thankyou{text-align:center;font-size:1.1rem;padding:1.5rem 0}
+    @media (max-width:32rem){.fgrid{grid-template-columns:1fr}}
 
-    .cs-contact a {
-      color: var(--ink);
-      font-size: 0.95rem;
-      letter-spacing: 0.04em;
-      opacity: 0.65;
-      transition: opacity 0.15s;
-    }
-
-    .cs-contact a:hover {
-      opacity: 1;
-    }
+    /* ── About / footer ── */
+    .about{text-align:center;max-width:40rem;margin:0 auto}
+    .about p{margin-bottom:.9rem}
+    .about .contact{margin-top:1.2rem;font-weight:600;letter-spacing:.06em}
+    .finley{display:flex;align-items:center;justify-content:center;gap:1rem;padding:1.2rem 0 0}
+    .finley img{width:5.5rem}
+    .finley p{font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+    footer{border-top:4px double var(--ink);margin-top:2.5rem;padding:1.4rem 0 2rem;text-align:center;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
   </style>
 </head>
-<body>
-  <main class="cs-wrap" id="main-content">
-    <img
-      src="media/finley-fire.png"
-      alt="Finley the fire-breathing Chihuahua"
-      class="cs-finley"
-      loading="eager"
-      decoding="async"
-    />
-    <h1 class="cs-banner">Pending Circus</h1>
-    <p class="cs-tagline">Coming soon.</p>
-    <div class="cs-contact">
-      <a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a>
-      <a
-        href="https://instagram.com/sarah_fiadh_pending_circus"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Instagram"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
+<body id="top">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="mast wrap">
+    <p class="mast-kicker">Atlanta, Georgia ✶ Live Performance</p>
+    <h1>Pending Circus</h1>
+    <p class="mast-sub">Custom Characters ✶ Mirror Suits ✶ Duo Spectacle</p>
+    <nav aria-label="Primary navigation">
+      <a href="#gallery">Gallery</a>
+      <a href="#offerings">What We Do</a>
+      <a href="#rates">Rates</a>
+      <a href="#contact" class="book">Booking</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="hero wrap">
+      <div class="hero-frame">
+        <img src="media/royal-ballet-dancer.jpg" alt="Pending Circus performer in a dramatic dance portrait" loading="eager" decoding="async" fetchpriority="high" />
+        <span class="badge">Now Booking</span>
+      </div>
+      <div><a href="#contact" class="hero-cta">Work With Us</a></div>
     </div>
+
+    <p class="marquee" aria-hidden="true">✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶</p>
+
+    <section id="gallery" aria-label="Performance gallery">
+      <div class="wrap">
+        <div class="sec-head"><h2>Gallery</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+        <div class="grid">
+          <figure><img src="media/designer-ballerina-costume.jpg" alt="Sarah in a designer ballerina costume built in-house" loading="eager" decoding="async" /></figure>
+          <figure><img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume, designed and built by Pending Circus" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/pink-dragonfly-costume.jpg" alt="Pink dragonfly character costume made in-house" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/mermaid.jpg" alt="Mermaid character performance" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/butterfly-wings.jpg" alt="Sarah performing in handmade butterfly wings" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/fierce-sarah.jpg" alt="Sarah in a fierce performance pose" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/lollipop.webp" alt="Sarah performing on a lollipop apparatus" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings performance" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/sexy-wings.jpg" alt="Sarah in dramatic costume wings" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/echo-park-sarah.jpg" alt="Sarah performing outdoors" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/sarah-alone-studio.jpg" alt="Sarah in the studio" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/sarah-club.jpg" alt="Sarah performing at a club event" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/ivy-sarah.jpeg" alt="Sarah in an ivy-themed costume" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/montreal-table.jpg" alt="Performance in Montreal" loading="lazy" decoding="async" /></figure>
+          <figure class="vid-fig">
+            <video src="media/vegas-dance.mp4" controls muted playsinline preload="none" aria-label="Vegas dance performance clip"></video>
+          </figure>
+          <figure class="vid-fig">
+            <video src="media/la-fitness-sarah.mp4" controls muted playsinline preload="none" aria-label="Sarah dance performance reel"></video>
+          </figure>
+          <figure class="vid-fig">
+            <video src="media/sarah-lollipop.mov" controls muted playsinline preload="none" aria-label="Sarah performing on the lollipop apparatus"></video>
+          </figure>
+          <figure class="vid-fig">
+            <video src="media/Firefly a beautiful and fearless red haired circus performer woman performing on a lollipop apparatu.mp4" controls muted playsinline preload="none" aria-label="Sarah performing on the lollipop apparatus, outdoor"></video>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="offerings" aria-label="What we offer">
+      <div class="wrap">
+        <div class="sec-head"><h2>What We Do</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+
+        <article class="offer">
+          <figure aria-hidden="true"><img src="media/rock-people.png" alt="" loading="lazy" decoding="async" /></figure>
+          <div class="offer-copy">
+            <h3>Custom Characters &amp; Kids Entertainment</h3>
+            <p>Original characters, designed and built in-house — dream one up and we'll bring it to life. Interactive character visits, duo shows, games, and photo moments for birthdays, festivals, libraries, schools, and hospital &amp; community events. Every costume is ours: original, handmade, and unlike anything off a rack.</p>
+            <span class="best">Best for kids' events, family festivals, and organizations that book entertainment every season.</span>
+          </div>
+        </article>
+
+        <article class="offer">
+          <figure aria-hidden="true"><img src="media/mirror-suit-example.jpg" alt="" loading="lazy" decoding="async" /></figure>
+          <div class="offer-copy">
+            <h3>Mirror Suits &amp; Duo Spectacle</h3>
+            <p>Walkaround mirror suit performance for galas, openings, and corporate events — the photo moment your guests will post. Ballet, contemporary, partner work, and improvisation in costume.</p>
+            <span class="best">Best for galas, corporate events, and brand activations.</span>
+            <p class="quote">"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+          </div>
+        </article>
+
+        <article class="offer">
+          <figure>
+            <video src="media/san-jose-staircase.mp4" controls muted playsinline preload="none" aria-label="Duo staircase performance video"></video>
+          </figure>
+          <div class="offer-copy">
+            <h3>Movement Art &amp; Duo Dance</h3>
+            <p>Duo acts, dance, skits, and circus-style lifts — ballet, tap, jazz, broadway, contemporary, and partner dance. Seen in Crux Collective Atlanta Presents: Untamed.</p>
+            <span class="best">Best for themed productions, immersive events, and creative collaborations.</span>
+            <p class="quote">"Your talent and chemistry as a duo really shone through every movement." — Guyesha Blackshear, Internal Events Contractor, OpenGov</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="kelly" aria-label="What it's like to work with us">
+      <div class="wrap">
+        <blockquote>
+          <p>"This duo walked in off the street, auditioned on the spot for our show Mirth &amp; Mischief, and never looked back. They claimed our 'Rock People' characters as their own from day one and then kept building. Every show day brought new material, fresh improvisation, and moments that stopped audiences in their tracks creating endless delight. Their instinct for the work, their generosity with fellow cast members, and their sheer commitment to the craft made them two of the most valuable people in our cast. Sincere, hardworking, talented, and genuinely kind, they are exactly who you want as performers. We'll be finding reasons to work with them again and again."</p>
+          <cite>— Kelly J Nelson, Founder &amp; Director, Mirth &amp; Mischief Enterprises</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="rates" aria-label="Rates">
+      <div class="wrap">
+        <div class="bill">
+          <div class="bill-head">
+            <h2>Price of Admission</h2>
+            <p>Flat rates ✶ In writing ✶ Before we begin</p>
+          </div>
+
+          <div class="bill-row"><span class="name">Character visit</span><span class="dots" aria-hidden="true"></span><span class="price">$250</span></div>
+          <p class="bill-note">One performer in a custom character · up to 60 min · games, story, photos</p>
+
+          <div class="bill-row"><span class="name">Duo character party</span><span class="dots" aria-hidden="true"></span><span class="price">$425</span></div>
+          <p class="bill-note">Both of us, in character · 90 min · show + games + photo time</p>
+
+          <div class="bill-row"><span class="name">Mirror suit appearance</span><span class="dots" aria-hidden="true"></span><span class="price">$400</span></div>
+          <p class="bill-note">Walkaround spectacle · up to 2 hours · the photo moment of the night</p>
+
+          <div class="bill-row"><span class="name">Duo spectacle / ambient</span><span class="dots" aria-hidden="true"></span><span class="price">$500</span></div>
+          <p class="bill-note">Dance, characters, lifts, walkaround · up to 2 hours</p>
+
+          <div class="bill-row"><span class="name">Festivals &amp; productions</span><span class="dots" aria-hidden="true"></span><span class="price">Let's talk</span></div>
+          <p class="bill-note">Day rates and multi-performer casts</p>
+
+          <div class="bill-row"><span class="name">Annual entertainment partner</span><span class="dots" aria-hidden="true"></span><span class="price">Let's talk</span></div>
+          <p class="bill-note">Your seasonal events, covered — 4+ dates a year, priority booking, package rate</p>
+
+          <div class="bill-row"><span class="name">Custom costume commissions</span><span class="dots" aria-hidden="true"></span><span class="price">By quote</span></div>
+          <p class="bill-note">Designed and built by Sarah — characters, mascots, stage pieces</p>
+
+          <div class="bill-row"><span class="name">Equipment rental</span><span class="dots" aria-hidden="true"></span><span class="price">By quote</span></div>
+          <p class="bill-note">Mirror suit &amp; apparatus · experienced performers only</p>
+
+          <p class="bill-fine">Fully self-managed: we bring, run, and strike our own equipment.<br />Travel beyond metro Atlanta quoted plainly, in writing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="shows" aria-label="Upcoming shows and past shows">
+      <div class="wrap">
+        <div class="sec-head"><h2>Shows</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+        <p class="meta">Upcoming</p>
+        <h3>East Coast Stairwells</h3>
+        <p class="meta">2026 · Atlanta, Georgia · Ask about dates</p>
+        <div class="past">
+          <p class="meta">Past</p>
+          <h3>Canton House Masquerade Dance</h3>
+          <p class="meta">Atlanta, Georgia</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="logos" aria-label="Clients we have performed for">
+      <p>Performed for</p>
+      <div class="logos-row">
+        <img src="media/logo-piedmont.svg" alt="Piedmont" />
+        <img src="media/open-gov.png" alt="OpenGov" />
+        <img src="media/mirth-and-mischief.png" alt="Mirth and Mischief" />
+      </div>
+    </div>
+
+    <section id="contact" aria-label="Book Pending Circus">
+      <div class="wrap">
+        <form class="book-form" id="contact-form" action="https://formspree.io/f/mlgaplok" method="POST" novalidate>
+          <h2>Want us at your event?</h2>
+          <div class="fgrid">
+            <label><span>Name</span><input type="text" name="name" autocomplete="name" /></label>
+            <label><span>Email</span><input type="email" name="email" autocomplete="email" inputmode="email" /></label>
+            <label><span>City</span><input type="text" name="city" autocomplete="address-level2" /></label>
+            <label><span>Date</span><input type="date" name="date" /></label>
+            <label class="full"><span>Tell us a little</span><textarea name="details"></textarea></label>
+          </div>
+          <button type="submit" class="fbtn">Contact Us</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="about" aria-label="About Pending Circus">
+      <div class="wrap about">
+        <div class="sec-head"><h2>About</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+        <p>Pending Circus is Sarah, John, and friends — they met in a dance class and never looked back.</p>
+        <p>Sarah has been dancing since she was three years old, starting with ballet, and has spent her life as a professional dancer, choreographer, instructor and performer. John came as a student and stayed as a co-creator. For the past two years they have been performing constantly — galas, parties, clubs, productions, and everywhere in between.</p>
+        <p>Sarah designs and builds our costumes in-house, and we manage, transport, and run our own equipment — you book us, we handle the rest.</p>
+        <p>Based in Atlanta. Available everywhere.</p>
+        <p class="contact">314 276 7081 · <a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a> · <a href="https://instagram.com/sarah_fiadh_pending_circus" target="_blank" rel="noreferrer">Instagram</a></p>
+        <div class="finley">
+          <img src="media/finley-fire.png" alt="Finley the resident dragon" loading="lazy" decoding="async" />
+          <p>Resident Dragon · Mildly Dramatic</p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <p>Pending Circus LLC ✶ Atlanta</p>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending\u2026';
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            form.innerHTML = '<div class="form-thankyou"><p>Thank you! We\'ll be in touch soon.</p></div>';
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Contact Us';
+            alert('Something went wrong \u2014 please email us directly at pendingcircus@gmail.com');
+          }
+        }).catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Contact Us';
+          alert('Something went wrong \u2014 please email us directly at pendingcircus@gmail.com');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
