@@ -32,29 +32,29 @@
     .skip-link:focus{left:0;top:0}
     .wrap{max-width:64rem;margin:0 auto;padding:0 1.25rem}
 
-    .mast{border-bottom:4px double var(--ink);padding:1.5rem 0 1.1rem;text-align:center}
+    .mast{border-bottom:1px solid var(--ink);padding:1.5rem 0 1.1rem;text-align:center}
     .mast h1{font-size:clamp(2.6rem,11vw,6rem);font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1;margin-bottom:.4rem}
     .mast-sub{font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
     .mast nav{margin-top:1rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.6rem}
     .mast nav a{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600}
     .mast nav a:hover{text-decoration:underline;text-underline-offset:4px}
-    .mast nav .book{background:var(--teal);padding:.1rem .7rem;border:2px solid var(--ink)}
+    .mast nav .book{background:var(--teal);padding:.1rem .7rem;border:1px solid var(--ink)}
     @media (max-width:500px){.mast nav{display:none}body{padding-bottom:3.6rem}}
 
     .sticky-book{display:none}
     @media (max-width:500px){
-      .sticky-book{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--teal);border-top:3px solid var(--ink)}
+      .sticky-book{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--teal);border-top:2px solid var(--ink)}
       .sticky-book a{display:block;width:100%;text-align:center;font-family:"Oswald",Arial,sans-serif;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:.85rem 1rem}
     }
 
     .hero{padding:1.4rem 0 0;text-align:center}
-    .hero-frame{border:3px solid var(--ink);display:inline-block;max-width:100%;position:relative}
-    .hero-frame img{max-height:86svh;width:auto;max-width:100%}
-    .badge{position:absolute;top:-14px;right:-10px;background:var(--teal);border:2px solid var(--ink);padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
-    .hero-cta{display:inline-block;margin:1.2rem auto 0;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:3px solid var(--ink)}
+    .hero-frame{border:2px solid var(--ink);display:inline-block;max-width:100%;position:relative}
+    .hero-frame img{max-height:96svh;width:auto;max-width:100%}
+    .badge{position:absolute;top:-14px;right:-10px;background:var(--teal);border:1px solid var(--ink);padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
+    .hero-cta{display:inline-block;margin:1.2rem auto 0;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:2px solid var(--ink)}
     .hero-cta:hover{background:transparent;color:var(--ink)}
 
-    .marquee{border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);margin:2.2rem 0;padding:.55rem 0;overflow:hidden;white-space:nowrap;font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:1rem;text-align:center}
+    .marquee{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:2.2rem 0;padding:.55rem 0;overflow:hidden;white-space:nowrap;font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:1rem;text-align:center}
 
     section{padding:2.2rem 0}
     .sec-head{text-align:center;margin-bottom:1.5rem}
@@ -62,14 +62,14 @@
     .sec-head .star{color:var(--muted);letter-spacing:.5em;font-size:.9rem;display:block;margin-top:.25rem}
 
     .reel-wrap{max-width:80rem;margin:0 auto;padding:0 1.25rem}
-    .reel-frame{border:3px solid var(--ink);background:#000;margin:0 auto}
+    .reel-frame{border:1px solid var(--ink);background:#000;margin:0 auto}
     .reel-frame video{width:100%;aspect-ratio:16/9;display:block}
     .reel-note{text-align:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.7rem}
 
     /* Finley peeking in from the right edge on the way down the page */
     .peek{position:relative;height:0;overflow:visible;pointer-events:none}
     .peek img{
-      position:absolute;right:0;top:-1rem;width:clamp(6rem,14vw,10rem);
+      position:absolute;right:0;top:-1rem;width:clamp(8rem,18vw,14rem);
       transform:translateX(62%) rotate(14deg);
       transition:transform .7s cubic-bezier(.2,.8,.3,1);
     }
@@ -80,23 +80,25 @@
     @media (max-width:34rem){.peek img{top:-.5rem}}
 
     .make-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:48rem;margin:0 auto}
-    .make-grid figure{border:3px solid var(--ink);background:#fff}
+    .make-grid figure{border:1px solid var(--ink);background:#fff}
     .make-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
-    .make-grid figcaption{border-top:3px solid var(--ink);padding:.5rem .7rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center}
+    .make-grid figcaption{border-top:1px solid var(--ink);padding:.5rem .7rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center}
     .make-note{text-align:center;margin-top:1rem;font-size:.95rem}
     @media (max-width:34rem){.make-grid{grid-template-columns:1fr}}
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-    .grid figure{border:3px solid var(--ink);background:#fff}
+    .grid figure{border:1px solid var(--ink);background:#fff}
     .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
     .grid .wide{grid-column:span 2}
     .grid .wide img,.grid .wide video{aspect-ratio:16/10;width:100%;height:100%;object-fit:cover}
     @media (max-width:34rem){.grid .wide{grid-column:span 1}}
+    @media (max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:28rem){.grid{grid-template-columns:1fr}}
 
-    .kelly{background:var(--pink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+    .kelly{background:var(--pink);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
     .quotes{max-width:46rem}
     .kelly blockquote{margin:0 auto;font-size:1.02rem;line-height:1.6}
-    .quote-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.6rem;padding-top:1.4rem;border-top:2px solid var(--ink)}
+    .quote-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--ink)}
     .kelly blockquote.small p{font-size:.95rem}
     @media (max-width:34rem){.quote-pair{grid-template-columns:1fr;gap:1.2rem}}
     .kelly cite{display:block;margin-top:.9rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
@@ -107,30 +109,34 @@
     .next li:last-child{border-bottom:none}
     .next li b{letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;color:var(--muted);display:block}
 
-    .logos{text-align:center;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding:1.4rem 0}
-    .logos p{font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
-    .logos-row{display:flex;justify-content:center;align-items:center;gap:2.2rem;flex-wrap:wrap}
-    .logos-row img{height:2rem;width:auto;filter:grayscale(1)}
+    .logos{text-align:center;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:2.2rem 0}
+    .logos p{font-size:.95rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);margin-bottom:1.1rem;font-weight:600}
+    .logos-row{display:flex;justify-content:center;align-items:center;gap:3.5rem;flex-wrap:wrap}
+    @media (max-width:500px){.logos-row{gap:2rem}}
+    .logos-row img{height:3.5rem;width:auto;filter:none}
 
-    .book-form{max-width:32rem;margin:0 auto;background:#fff;border:3px solid var(--ink);padding:1.5rem 1.3rem}
+    .pullquote{padding:1.4rem 0;text-align:center}
+    .pullquote blockquote p{font-size:1rem;font-style:italic;max-width:38rem;margin:0 auto;line-height:1.65}
+    .pullquote cite{display:block;margin-top:.55rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;color:var(--muted)}
+    .book-form{max-width:32rem;margin:0 auto;background:#fff;border:1px solid var(--ink);padding:1.5rem 1.3rem}
     .form-note{text-align:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:-.6rem 0 1rem}
     .book-form h2{text-align:center;font-size:1.25rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem}
     .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
     .fgrid label{display:flex;flex-direction:column;gap:.25rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
     .fgrid .full{grid-column:1/-1}
-    .fgrid input,.fgrid textarea{font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;border:2px solid var(--ink);background:var(--paper);padding:.55rem .6rem}
+    .fgrid input,.fgrid textarea{font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;border:1px solid var(--ink);background:var(--paper);padding:.55rem .6rem}
     .fgrid textarea{min-height:5.5rem;resize:vertical}
-    .fbtn{margin-top:1rem;width:100%;cursor:pointer;background:var(--teal);border:3px solid var(--ink);font:inherit;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.85rem}
+    .fbtn{margin-top:1rem;width:100%;cursor:pointer;background:var(--teal);border:2px solid var(--ink);font:inherit;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.85rem}
     .fbtn:hover{background:var(--ink);color:var(--paper)}
     .form-thankyou{text-align:center;font-size:1.05rem;padding:1.4rem 0}
     @media (max-width:32rem){.fgrid{grid-template-columns:1fr}}
 
-    .about{text-align:center;max-width:38rem;margin:0 auto}
+    .about{text-align:center;max-width:38rem;margin:0 auto;position:relative;padding-bottom:6rem}
     .about p{margin-bottom:.8rem}
-    .finley{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.8rem 0 0}
-    .finley img{width:5rem}
-    .finley p{font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-    footer{border-top:4px double var(--ink);margin-top:2.2rem;padding:1.3rem 0 2rem;text-align:center;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+    .finley{position:absolute;right:-.5rem;bottom:-.5rem;pointer-events:none;text-align:right}
+    .finley img{width:9rem;transform:rotate(14deg);opacity:.85;display:block;margin-left:auto}
+    .finley p{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-right:.5rem;transform:rotate(-4deg)}
+    footer{border-top:1px solid var(--ink);margin-top:2.2rem;padding:1.3rem 0 2rem;text-align:center;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
     footer a{font-weight:700}
   </style>
 </head>
@@ -169,7 +175,7 @@
     <section id="photos" aria-label="Photos">
       <div class="wrap">
         <div class="grid">
-          <figure class="wide"><img src="media/mirror-suit-example.jpg" alt="Mirror suit walkaround costume" loading="eager" decoding="async" /></figure>
+          <figure><img src="media/mirror-suit-example.jpg" alt="Mirror suit walkaround costume" loading="eager" decoding="async" /></figure>
           <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/mermaid.jpg" alt="Mermaid character" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings at night" loading="lazy" decoding="async" /></figure>
@@ -184,6 +190,15 @@
       </div>
     </section>
 
+    <div class="pullquote">
+      <div class="wrap">
+        <blockquote>
+          <p>"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again."</p>
+          <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
+        </blockquote>
+      </div>
+    </div>
+
     <div class="peek" aria-hidden="true">
       <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
     </div>
@@ -191,10 +206,10 @@
     <!-- COSTUME SECTION. Needs media/costume-sketch.jpeg (the file in the repo is empty). Delete this section if it isn't ready. -->
     <section aria-labelledby="make-h">
       <div class="wrap">
-        <div class="sec-head"><h2 id="make-h">We Make the Costumes</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+        <div class="sec-head"><h2 id="make-h">We Make Many of the Costumes</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <div class="make-grid">
           <figure>
-            <img src="media/costume-sketch.jpeg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
+            <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
             <figcaption>The drawing</figcaption>
           </figure>
           <figure>
@@ -202,7 +217,7 @@
             <figcaption>The costume</figcaption>
           </figure>
         </div>
-        <p class="make-note">Some costumes start as a drawing. Others are bought and rebuilt. Either way the work happens here.</p>
+        <p class="make-note">We design and build many of our costumes. Some start as a sketch — others are bought and rebuilt from scratch.</p>
       </div>
     </section>
 
@@ -212,16 +227,7 @@
           <p>"This duo walked in off the street, auditioned on the spot for our show Mirth &amp; Mischief, and never looked back. They claimed our 'Rock People' characters as their own from day one and then kept building. Every show day brought new material, fresh improvisation, and moments that stopped audiences in their tracks creating endless delight. Their instinct for the work, their generosity with fellow cast members, and their sheer commitment to the craft made them two of the most valuable people in our cast. Sincere, hardworking, talented, and genuinely kind, they are exactly who you want as performers. We'll be finding reasons to work with them again and again."</p>
           <cite>Kelly J Nelson, Founder &amp; Director, Mirth &amp; Mischief Enterprises</cite>
         </blockquote>
-        <div class="quote-pair">
-          <blockquote class="small">
-            <p>"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again."</p>
-            <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
-          </blockquote>
-          <blockquote class="small">
-            <p>"Your talent and chemistry as a duo really shone through every movement."</p>
-            <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
-          </blockquote>
-        </div>
+
       </div>
     </section>
 
@@ -234,13 +240,20 @@
       </div>
     </div>
 
+    <div class="pullquote">
+      <div class="wrap">
+        <blockquote>
+          <p>"Your talent and chemistry as a duo really shone through every movement."</p>
+          <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
+        </blockquote>
+      </div>
+    </div>
+
     <section aria-labelledby="next-h">
       <div class="wrap next">
         <div class="sec-head"><h2 id="next-h">What's Next</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <ul>
-          <li><b>2027</b>The Doggie Regency Ball, Atlanta. A Regency ball with adoptable dogs, social dancing and live performance.</li>
           <li><b>Spring 2027</b>HauntCon, Orlando.</li>
-          <li><b>2027</b>Traveling in Japan and Mexico.</li>
           <li><b>Open</b>Available for productions, festival runs, faires and parks.</li>
         </ul>
       </div>
