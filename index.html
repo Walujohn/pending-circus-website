@@ -47,9 +47,9 @@
       .sticky-book a{display:block;width:100%;text-align:center;font-family:"Oswald",Arial,sans-serif;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:.85rem 1rem}
     }
 
-    .hero{padding:1.4rem 0 0;text-align:center}
-    .hero-frame{border:2px solid var(--ink);display:inline-block;max-width:100%;position:relative}
-    .hero-frame img{max-height:96svh;width:auto;max-width:100%}
+    .hero{padding:0;text-align:center}
+    .hero-frame{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);display:block;width:100%;position:relative}
+    .hero-frame img{width:100%;height:auto;display:block}
     .badge{position:absolute;top:-14px;right:-10px;background:var(--teal);border:1px solid var(--ink);padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
     .hero-cta{display:inline-block;margin:1.2rem auto 0;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:2px solid var(--ink)}
     .hero-cta:hover{background:transparent;color:var(--ink)}
@@ -108,6 +108,7 @@
     .next li{padding:.45rem 0;border-bottom:1px dotted var(--muted);font-size:1rem}
     .next li:last-child{border-bottom:none}
     .next li b{letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;color:var(--muted);display:block}
+    .next-sec{background:var(--teal);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
 
     .logos{text-align:center;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:2.2rem 0}
     .logos p{font-size:.95rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);margin-bottom:1.1rem;font-weight:600}
@@ -152,12 +153,12 @@
   </header>
 
   <main id="main-content">
-    <div class="hero wrap">
+    <div class="hero">
       <div class="hero-frame">
         <img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="eager" decoding="async" fetchpriority="high" />
         <span class="badge">Booking 2027</span>
       </div>
-      <div><a href="#contact" class="hero-cta">Say Hello</a></div>
+      <div class="wrap"><a href="#contact" class="hero-cta">Say Hello</a></div>
     </div>
 
     <p class="marquee" aria-hidden="true">✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶</p>
@@ -190,23 +191,13 @@
       </div>
     </section>
 
-    <div class="pullquote">
-      <div class="wrap">
-        <blockquote>
-          <p>"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again."</p>
-          <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
-        </blockquote>
-      </div>
-    </div>
-
     <div class="peek" aria-hidden="true">
       <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
     </div>
 
     <!-- COSTUME SECTION. Needs media/costume-sketch.jpeg (the file in the repo is empty). Delete this section if it isn't ready. -->
-    <section aria-labelledby="make-h">
+    <section aria-label="Costumes we make">
       <div class="wrap">
-        <div class="sec-head"><h2 id="make-h">We Make Many of the Costumes</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <div class="make-grid">
           <figure>
             <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
@@ -227,7 +218,16 @@
           <p>"This duo walked in off the street, auditioned on the spot for our show Mirth &amp; Mischief, and never looked back. They claimed our 'Rock People' characters as their own from day one and then kept building. Every show day brought new material, fresh improvisation, and moments that stopped audiences in their tracks creating endless delight. Their instinct for the work, their generosity with fellow cast members, and their sheer commitment to the craft made them two of the most valuable people in our cast. Sincere, hardworking, talented, and genuinely kind, they are exactly who you want as performers. We'll be finding reasons to work with them again and again."</p>
           <cite>Kelly J Nelson, Founder &amp; Director, Mirth &amp; Mischief Enterprises</cite>
         </blockquote>
-
+        <div class="quote-pair">
+          <blockquote class="small">
+            <p>"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again."</p>
+            <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
+          </blockquote>
+          <blockquote class="small">
+            <p>"Your talent and chemistry as a duo really shone through every movement."</p>
+            <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
+          </blockquote>
+        </div>
       </div>
     </section>
 
@@ -240,16 +240,7 @@
       </div>
     </div>
 
-    <div class="pullquote">
-      <div class="wrap">
-        <blockquote>
-          <p>"Your talent and chemistry as a duo really shone through every movement."</p>
-          <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
-        </blockquote>
-      </div>
-    </div>
-
-    <section aria-labelledby="next-h">
+    <section class="next-sec" aria-labelledby="next-h">
       <div class="wrap next">
         <div class="sec-head"><h2 id="next-h">What's Next</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <ul>
