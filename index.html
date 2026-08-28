@@ -61,6 +61,7 @@
     .sec-head h2{font-size:clamp(1.5rem,4.5vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
     .sec-head .star{color:var(--muted);letter-spacing:.5em;font-size:.9rem;display:block;margin-top:.25rem}
 
+    .reel-wrap{max-width:80rem;margin:0 auto;padding:0 1.25rem}
     .reel-frame{border:3px solid var(--ink);background:#000;margin:0 auto}
     .reel-frame video{width:100%;aspect-ratio:16/9;display:block}
     .reel-note{text-align:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.7rem}
@@ -85,7 +86,7 @@
     .make-note{text-align:center;margin-top:1rem;font-size:.95rem}
     @media (max-width:34rem){.make-grid{grid-template-columns:1fr}}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.1rem}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
     .grid figure{border:3px solid var(--ink);background:#fff}
     .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
     .grid .wide{grid-column:span 2}
@@ -157,7 +158,7 @@
 
     <!-- REEL SECTION. Needs media/reel.mp4. Delete this whole section if the reel isn't ready. -->
     <section id="reel" aria-label="Performance reel">
-      <div class="wrap">
+      <div class="reel-wrap">
         <div class="reel-frame">
           <video src="media/reel.mp4" poster="media/mirror-suit-example.jpg" controls playsinline preload="none" aria-label="Pending Circus performance reel"></video>
         </div>
