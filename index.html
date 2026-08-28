@@ -22,6 +22,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
     html{scroll-behavior:smooth}
+    body{overflow-x:hidden}
     @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
     body{background:var(--paper);color:var(--ink);font-family:"Oswald","Arial Narrow",Arial,sans-serif;line-height:1.5;font-size:1.05rem}
     img,video{max-width:100%;display:block}
@@ -46,11 +47,10 @@
       .sticky-book a{display:block;width:100%;text-align:center;font-family:"Oswald",Arial,sans-serif;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:.85rem 1rem}
     }
 
-    .hero{padding:1.8rem 0 0;text-align:center}
+    .hero{padding:1.4rem 0 0;text-align:center}
     .hero-frame{border:3px solid var(--ink);display:inline-block;max-width:100%;position:relative}
-    .hero-frame img{max-height:72svh;width:auto;max-width:100%}
+    .hero-frame img{max-height:86svh;width:auto;max-width:100%}
     .badge{position:absolute;top:-14px;right:-10px;background:var(--teal);border:2px solid var(--ink);padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
-    .hello{max-width:34rem;margin:1.4rem auto 0;font-size:1.1rem}
     .hero-cta{display:inline-block;margin:1.2rem auto 0;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:3px solid var(--ink)}
     .hero-cta:hover{background:transparent;color:var(--ink)}
 
@@ -64,6 +64,19 @@
     .reel-frame{border:3px solid var(--ink);background:#000;margin:0 auto}
     .reel-frame video{width:100%;aspect-ratio:16/9;display:block}
     .reel-note{text-align:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.7rem}
+
+    /* Finley peeking in from the right edge on the way down the page */
+    .peek{position:relative;height:0;overflow:visible;pointer-events:none}
+    .peek img{
+      position:absolute;right:0;top:-1rem;width:clamp(6rem,14vw,10rem);
+      transform:translateX(62%) rotate(14deg);
+      transition:transform .7s cubic-bezier(.2,.8,.3,1);
+    }
+    .peek.is-in img{transform:translateX(14%) rotate(-6deg)}
+    @media (prefers-reduced-motion: reduce){
+      .peek img{transform:translateX(14%) rotate(-6deg)}
+    }
+    @media (max-width:34rem){.peek img{top:-.5rem}}
 
     .make-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:48rem;margin:0 auto}
     .make-grid figure{border:3px solid var(--ink);background:#fff}
@@ -80,7 +93,11 @@
     @media (max-width:34rem){.grid .wide{grid-column:span 1}}
 
     .kelly{background:var(--pink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
-    .kelly blockquote{max-width:44rem;margin:0 auto;font-size:1.02rem;line-height:1.6}
+    .quotes{max-width:46rem}
+    .kelly blockquote{margin:0 auto;font-size:1.02rem;line-height:1.6}
+    .quote-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.6rem;padding-top:1.4rem;border-top:2px solid var(--ink)}
+    .kelly blockquote.small p{font-size:.95rem}
+    @media (max-width:34rem){.quote-pair{grid-template-columns:1fr;gap:1.2rem}}
     .kelly cite{display:block;margin-top:.9rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
 
     .next{max-width:40rem;margin:0 auto;text-align:center}
@@ -123,8 +140,6 @@
     <h1>Pending Circus</h1>
     <p class="mast-sub">Two performers ✶ Atlanta ✶ Will travel</p>
     <nav aria-label="Primary navigation">
-      <a href="#reel">Reel</a>
-      <a href="#photos">Photos</a>
       <a href="#contact" class="book">Get In Touch</a>
     </nav>
   </header>
@@ -135,20 +150,14 @@
         <img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="eager" decoding="async" fetchpriority="high" />
         <span class="badge">Booking 2027</span>
       </div>
-      <p class="hello">
-        Sarah and John. A performance duo in Atlanta. Characters, mirror suit and stilt
-        costumes, partner work and dance. We make most of our own costumes and bring our
-        own gear.
-      </p>
       <div><a href="#contact" class="hero-cta">Say Hello</a></div>
     </div>
 
     <p class="marquee" aria-hidden="true">✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶</p>
 
     <!-- REEL SECTION. Needs media/reel.mp4. Delete this whole section if the reel isn't ready. -->
-    <section id="reel" aria-labelledby="reel-h">
+    <section id="reel" aria-label="Performance reel">
       <div class="wrap">
-        <div class="sec-head"><h2 id="reel-h">Reel</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <div class="reel-frame">
           <video src="media/reel.mp4" poster="media/mirror-suit-example.jpg" controls playsinline preload="none" aria-label="Pending Circus performance reel"></video>
         </div>
@@ -157,11 +166,9 @@
     </section>
 
     <section id="photos" aria-label="Photos">
-      <div class="sec-head"><h2>Photos</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
       <div class="wrap">
         <div class="grid">
           <figure class="wide"><img src="media/mirror-suit-example.jpg" alt="Mirror suit walkaround costume" loading="eager" decoding="async" /></figure>
-          <figure><img src="media/rock-people.png" alt="Rock People characters from Mirth and Mischief" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/mermaid.jpg" alt="Mermaid character" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings at night" loading="lazy" decoding="async" /></figure>
@@ -170,12 +177,15 @@
           </figure>
           <figure><img src="media/butterfly-wings.jpg" alt="Handmade butterfly wings" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/designer-ballerina-costume.jpg" alt="Designer ballerina costume" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/graveyard-rocks.jpg" alt="Rock People characters on location" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/ivy-sarah.jpeg" alt="Ivy themed character costume" loading="lazy" decoding="async" /></figure>
           <figure><img src="media/royal-ballet-dancer.jpg" alt="Dance portrait" loading="lazy" decoding="async" /></figure>
         </div>
       </div>
     </section>
+
+    <div class="peek" aria-hidden="true">
+      <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
+    </div>
 
     <!-- COSTUME SECTION. Needs media/costume-sketch.jpeg (the file in the repo is empty). Delete this section if it isn't ready. -->
     <section aria-labelledby="make-h">
@@ -183,7 +193,7 @@
         <div class="sec-head"><h2 id="make-h">We Make the Costumes</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
         <div class="make-grid">
           <figure>
-            <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
+            <img src="media/costume-sketch.jpeg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
             <figcaption>The drawing</figcaption>
           </figure>
           <figure>
@@ -195,12 +205,22 @@
       </div>
     </section>
 
-    <section class="kelly" aria-label="A word from a director">
-      <div class="wrap">
+    <section class="kelly" aria-label="What people say">
+      <div class="wrap quotes">
         <blockquote>
-          <p>"This duo walked in off the street, auditioned on the spot for our show Mirth &amp; Mischief, and never looked back. They claimed our 'Rock People' characters as their own from day one and then kept building. Every show day brought new material, fresh improvisation, and moments that stopped audiences in their tracks. Sincere, hardworking, talented, and genuinely kind, they are exactly who you want as performers."</p>
+          <p>"This duo walked in off the street, auditioned on the spot for our show Mirth &amp; Mischief, and never looked back. They claimed our 'Rock People' characters as their own from day one and then kept building. Every show day brought new material, fresh improvisation, and moments that stopped audiences in their tracks creating endless delight. Their instinct for the work, their generosity with fellow cast members, and their sheer commitment to the craft made them two of the most valuable people in our cast. Sincere, hardworking, talented, and genuinely kind, they are exactly who you want as performers. We'll be finding reasons to work with them again and again."</p>
           <cite>Kelly J Nelson, Founder &amp; Director, Mirth &amp; Mischief Enterprises</cite>
         </blockquote>
+        <div class="quote-pair">
+          <blockquote class="small">
+            <p>"Thank you again for making our after party so memorable. We're already thinking about future events where we can work together again."</p>
+            <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
+          </blockquote>
+          <blockquote class="small">
+            <p>"Your talent and chemistry as a duo really shone through every movement."</p>
+            <cite>Guyesha Blackshear, Internal Events Contractor, OpenGov</cite>
+          </blockquote>
+        </div>
       </div>
     </section>
 
@@ -269,6 +289,18 @@
   </div>
 
   <script>
+    (function () {
+      var peek = document.querySelector('.peek');
+      if (peek && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { peek.classList.add('is-in'); io.disconnect(); } });
+        }, { threshold: 0.1 });
+        io.observe(peek);
+      } else if (peek) {
+        peek.classList.add('is-in');
+      }
+    })();
+
     (function () {
       var form = document.getElementById('contact-form');
       if (!form) return;
