@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pending Circus · An Atlanta duo</title>
+  <title>Pending Circus · Atlanta</title>
   <!-- REPLACES index.html at the repo root.
-       ALSO: delete the partners/ folder. Nothing links to it anymore.
-       ONE REPLACEMENT: INSTAGRAM-HANDLE (one place, in the footer line).
-       TWO MEDIA FILES THIS PAGE EXPECTS. Add them, or delete the marked section:
-         media/reel.mp4            -> search REEL SECTION
-         media/costume-sketch.jpeg -> search COSTUME SECTION
-       The sketch file currently in the repo is 0 bytes, so replace it before pushing. -->
-  <meta name="description" content="Pending Circus. Two performers in Atlanta. Characters, mirror suits, stilts, and a lot of homemade costumes." />
+       BEFORE PUSHING:
+         1. Save the JOIE logo from joie2026.com into media/joie-logo.png (the CSP blocks hotlinking).
+            If it's an SVG, save it as media/joie-logo.svg and change the one <img src> in What's Next.
+         2. INSTAGRAM-HANDLE in the footer is still a placeholder.
+         3. The reel section is parked in a comment until media/reel.mp4 exists. Search REEL SECTION. -->
+  <meta name="description" content="Pending Circus. Creative characters, dance, and stilts. Atlanta." />
   <meta name="theme-color" content="#F6F0E4" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https://formspree.io; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,20 +20,26 @@
     :root{--paper:#F6F0E4;--ink:#141110;--muted:#5C564E;--teal:#7ED7CF;--pink:#FFD8EF}
     *{box-sizing:border-box;margin:0;padding:0}
     @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
-    html{scroll-behavior:smooth}
-    body{overflow-x:hidden}
+    html{scroll-behavior:smooth;background:var(--paper)}
     @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-    body{background:var(--paper);color:var(--ink);font-family:"Oswald","Arial Narrow",Arial,sans-serif;line-height:1.5;font-size:1.05rem}
+    body{
+      background:var(--paper);color:var(--ink);
+      font-family:"Oswald","Arial Narrow",Arial,sans-serif;line-height:1.5;font-size:1.05rem;
+      max-width:100rem;margin:0 auto;overflow-x:hidden;
+    }
     img,video{max-width:100%;display:block}
     a{color:var(--ink)}
     :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
     .skip-link{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:.7rem 1.2rem;font-weight:600;text-decoration:none;z-index:10}
     .skip-link:focus{left:0;top:0}
     .wrap{max-width:64rem;margin:0 auto;padding:0 1.25rem}
+    .wide-wrap{max-width:96rem;margin:0 auto;padding:0 1.25rem}
+    .photo-wrap{max-width:90rem;margin:0 auto;padding:0 1.25rem}
 
+    /* masthead */
     .mast{border-bottom:1px solid var(--ink);padding:1.5rem 0 1.1rem;text-align:center}
     .mast h1{font-size:clamp(2.6rem,11vw,6rem);font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1;margin-bottom:.4rem}
-    .mast-sub{font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+    .mast-sub{font-size:.9rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
     .mast nav{margin-top:1rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.6rem}
     .mast nav a{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600}
     .mast nav a:hover{text-decoration:underline;text-underline-offset:4px}
@@ -47,54 +52,30 @@
       .sticky-book a{display:block;width:100%;text-align:center;font-family:"Oswald",Arial,sans-serif;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:.85rem 1rem}
     }
 
-    .hero{padding:0;text-align:center}
-    .hero-frame{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);display:block;width:100%;position:relative}
-    .hero-frame img{width:100%;height:auto;display:block}
-    .badge{position:absolute;top:-14px;right:-10px;background:var(--teal);border:1px solid var(--ink);padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
-    .hero-cta{display:inline-block;margin:1.2rem auto 0;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:2px solid var(--ink)}
+    /* split hero */
+    .top{padding:1.5rem 0 2rem}
+    .top-grid{display:grid;gap:1.6rem;align-items:center}
+    @media (min-width:64rem){.top-grid{grid-template-columns:1fr 1fr;gap:3rem}}
+    .hero-frame{border:2px solid var(--ink);position:relative;width:100%;aspect-ratio:3/4;max-height:88svh;overflow:hidden;background:#fff}
+    .hero-frame img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+    .badge{position:absolute;top:1rem;right:1rem;background:var(--teal);border:1px solid var(--ink);padding:.3rem .8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
+    .intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.6rem}
+    .pullquote blockquote p{font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:500;max-width:30rem;margin:0 auto;line-height:1.4}
+    .pullquote cite{display:block;margin-top:.6rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;color:var(--muted)}
+    .logos{text-align:center}
+    .logos p{font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem;font-weight:600}
+    .logos-row{display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap}
+    @media (max-width:500px){.logos-row{gap:1.6rem}}
+    .logos-row img{height:4.5rem;width:auto}
+    .hero-cta{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:2px solid var(--ink)}
     .hero-cta:hover{background:transparent;color:var(--ink)}
-
-    .marquee{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:2.2rem 0;padding:.55rem 0;overflow:hidden;white-space:nowrap;font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:1rem;text-align:center}
 
     section{padding:2.2rem 0}
     .sec-head{text-align:center;margin-bottom:1.5rem}
     .sec-head h2{font-size:clamp(1.5rem,4.5vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
     .sec-head .star{color:var(--muted);letter-spacing:.5em;font-size:.9rem;display:block;margin-top:.25rem}
 
-    .reel-wrap{max-width:80rem;margin:0 auto;padding:0 1.25rem}
-    .reel-frame{border:1px solid var(--ink);background:#000;margin:0 auto}
-    .reel-frame video{width:100%;aspect-ratio:16/9;display:block}
-    .reel-note{text-align:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.7rem}
-
-    /* Finley peeking in from the right edge on the way down the page */
-    .peek{position:relative;height:0;overflow:visible;pointer-events:none}
-    .peek img{
-      position:absolute;right:0;top:-1rem;width:clamp(8rem,18vw,14rem);
-      transform:translateX(62%) rotate(14deg);
-      transition:transform .7s cubic-bezier(.2,.8,.3,1);
-    }
-    .peek.is-in img{transform:translateX(14%) rotate(-6deg)}
-    @media (prefers-reduced-motion: reduce){
-      .peek img{transform:translateX(14%) rotate(-6deg)}
-    }
-    @media (max-width:34rem){.peek img{top:-.5rem}}
-
-    .make-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:48rem;margin:0 auto}
-    .make-grid figure{border:1px solid var(--ink);background:#fff}
-    .make-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
-    .make-grid figcaption{border-top:1px solid var(--ink);padding:.5rem .7rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center}
-    .make-note{text-align:center;margin-top:1rem;font-size:.95rem}
-    @media (max-width:34rem){.make-grid{grid-template-columns:1fr}}
-
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-    .grid figure{border:1px solid var(--ink);background:#fff}
-    .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
-    .grid .wide{grid-column:span 2}
-    .grid .wide img,.grid .wide video{aspect-ratio:16/10;width:100%;height:100%;object-fit:cover}
-    @media (max-width:34rem){.grid .wide{grid-column:span 1}}
-    @media (max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:28rem){.grid{grid-template-columns:1fr}}
-
+    /* testimonials */
     .kelly{background:var(--pink);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
     .quotes{max-width:46rem}
     .kelly blockquote{margin:0 auto;font-size:1.02rem;line-height:1.6}
@@ -103,24 +84,51 @@
     @media (max-width:34rem){.quote-pair{grid-template-columns:1fr;gap:1.2rem}}
     .kelly cite{display:block;margin-top:.9rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
 
-    .next{max-width:40rem;margin:0 auto;text-align:center}
-    .next ul{list-style:none;margin-top:.8rem}
-    .next li{padding:.45rem 0;border-bottom:1px dotted var(--muted);font-size:1rem}
+    /* reel (parked) */
+    .reel-wrap{max-width:80rem;margin:0 auto;padding:0 1.25rem}
+    .reel-frame{border:1px solid var(--ink);background:#000;margin:0 auto}
+    .reel-frame video{width:100%;aspect-ratio:16/9;display:block}
+
+    /* photos */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+    @media (min-width:64rem){.grid{grid-template-columns:repeat(3,1fr);gap:1.4rem}}
+    @media (max-width:28rem){.grid{grid-template-columns:1fr}}
+    .grid figure{border:1px solid var(--ink);background:#fff}
+    .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+    /* Finley peeking in from the right edge */
+    .peek{position:relative;height:0;overflow:visible;pointer-events:none}
+    .peek .peek-inner{position:absolute;right:0;top:-1rem;width:clamp(8rem,18vw,14rem);transform:translateX(62%) rotate(14deg);transition:transform .7s cubic-bezier(.2,.8,.3,1)}
+    .peek.is-in .peek-inner{transform:translateX(14%) rotate(-6deg)}
+    @media (prefers-reduced-motion: reduce){.peek .peek-inner{transform:translateX(14%) rotate(-6deg)}}
+    .peek img{width:100%}
+    .peek-cap{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;padding-right:.4rem;white-space:nowrap;margin-top:.2rem}
+    @media (max-width:34rem){.peek .peek-inner{top:-.5rem}}
+
+    /* costumes */
+    .make-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:48rem;margin:0 auto}
+    .make-grid figure{border:1px solid var(--ink);background:#fff}
+    .make-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .make-grid figcaption{border-top:1px solid var(--ink);padding:.5rem .7rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center}
+    .make-note{text-align:center;margin-top:1rem;font-size:.95rem}
+    @media (max-width:34rem){.make-grid{grid-template-columns:1fr}}
+
+    /* what's next */
+    .next-sec{background:var(--teal);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+    .next{max-width:44rem;margin:0 auto;text-align:center}
+    .feat{display:inline-flex;align-items:center;gap:1.2rem;text-decoration:none;font-size:1.25rem;font-weight:600;letter-spacing:.04em;margin-bottom:1.2rem}
+    .feat img{height:4rem;width:auto}
+    .feat:hover span{text-decoration:underline;text-underline-offset:4px}
+    @media (max-width:34rem){.feat{flex-direction:column;gap:.6rem}}
+    .next ul{list-style:none;border-top:1px solid var(--ink);padding-top:.6rem}
+    .next li{padding:.45rem 0;border-bottom:1px dotted var(--ink);font-size:1rem}
     .next li:last-child{border-bottom:none}
     .next li b{letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;color:var(--muted);display:block}
-    .next-sec{background:var(--teal);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
 
-    .logos{text-align:center;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:2.2rem 0}
-    .logos p{font-size:.95rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);margin-bottom:1.1rem;font-weight:600}
-    .logos-row{display:flex;justify-content:center;align-items:center;gap:3.5rem;flex-wrap:wrap}
-    @media (max-width:500px){.logos-row{gap:2rem}}
-    .logos-row img{height:3.5rem;width:auto;filter:none}
-
-    .pullquote{padding:1.4rem 0;text-align:center}
-    .pullquote blockquote p{font-size:1rem;font-style:italic;max-width:38rem;margin:0 auto;line-height:1.65}
-    .pullquote cite{display:block;margin-top:.55rem;font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;color:var(--muted)}
-    .book-form{max-width:32rem;margin:0 auto;background:#fff;border:1px solid var(--ink);padding:1.5rem 1.3rem}
-    .form-note{text-align:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:-.6rem 0 1rem}
+    /* contact + about, side by side on desktop */
+    .bottom-grid{display:grid;gap:2rem;align-items:start}
+    @media (min-width:64rem){.bottom-grid{grid-template-columns:1fr 1fr;gap:3rem}}
+    .book-form{background:#fff;border:1px solid var(--ink);padding:1.5rem 1.3rem}
     .book-form h2{text-align:center;font-size:1.25rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem}
     .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
     .fgrid label{display:flex;flex-direction:column;gap:.25rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
@@ -131,12 +139,11 @@
     .fbtn:hover{background:var(--ink);color:var(--paper)}
     .form-thankyou{text-align:center;font-size:1.05rem;padding:1.4rem 0}
     @media (max-width:32rem){.fgrid{grid-template-columns:1fr}}
-
-    .about{text-align:center;max-width:38rem;margin:0 auto;position:relative;padding-bottom:6rem}
+    .about{text-align:center}
+    @media (min-width:64rem){.about{text-align:left;padding-top:.5rem}}
+    .about h2{font-size:1.25rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem}
     .about p{margin-bottom:.8rem}
-    .finley{position:absolute;right:-.5rem;bottom:-.5rem;pointer-events:none;text-align:right}
-    .finley img{width:9rem;transform:rotate(14deg);opacity:.85;display:block;margin-left:auto}
-    .finley p{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-right:.5rem;transform:rotate(-4deg)}
+
     footer{border-top:1px solid var(--ink);margin-top:2.2rem;padding:1.3rem 0 2rem;text-align:center;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
     footer a{font-weight:700}
   </style>
@@ -146,69 +153,38 @@
 
   <header class="mast wrap">
     <h1>Pending Circus</h1>
-    <p class="mast-sub">Two performers ✶ Atlanta ✶ Will travel</p>
+    <p class="mast-sub">Creative characters, dance, and stilts</p>
     <nav aria-label="Primary navigation">
       <a href="#contact" class="book">Get In Touch</a>
     </nav>
   </header>
 
   <main id="main-content">
-    <div class="hero">
-      <div class="hero-frame">
-        <img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="eager" decoding="async" fetchpriority="high" />
-        <span class="badge">Booking 2027</span>
-      </div>
-      <div class="wrap"><a href="#contact" class="hero-cta">Say Hello</a></div>
-    </div>
-
-    <p class="marquee" aria-hidden="true">✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶ Pending Circus ✶</p>
-
-    <!-- REEL SECTION. Needs media/reel.mp4. Delete this whole section if the reel isn't ready. -->
-    <section id="reel" aria-label="Performance reel">
-      <div class="reel-wrap">
-        <div class="reel-frame">
-          <video src="media/reel.mp4" poster="media/mirror-suit-example.jpg" controls playsinline preload="none" aria-label="Pending Circus performance reel"></video>
+    <section class="top" aria-label="Introduction">
+      <div class="wide-wrap">
+        <div class="top-grid">
+          <div class="hero-frame">
+            <img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="eager" decoding="async" fetchpriority="high" />
+            <span class="badge">Booking 2027</span>
+          </div>
+          <div class="intro">
+            <div class="pullquote">
+              <blockquote>
+                <p>"They are exactly who you want as performers."</p>
+                <cite>Kelly J Nelson, Founder &amp; Director, Mirth &amp; Mischief Enterprises</cite>
+              </blockquote>
+            </div>
+            <div class="logos" aria-label="Places we have performed">
+              <p>Performed for</p>
+              <div class="logos-row">
+                <img src="media/logo-piedmont.svg" alt="Piedmont" />
+                <img src="media/open-gov.png" alt="OpenGov" />
+                <img src="media/mirth-and-mischief.png" alt="Mirth and Mischief" />
+              </div>
+            </div>
+            <a href="#contact" class="hero-cta">Say Hello</a>
+          </div>
         </div>
-        <p class="reel-note">Five minutes, uncut. Longer footage on request.</p>
-      </div>
-    </section>
-
-    <section id="photos" aria-label="Photos">
-      <div class="wrap">
-        <div class="grid">
-          <figure><img src="media/mirror-suit-example.jpg" alt="Mirror suit walkaround costume" loading="eager" decoding="async" /></figure>
-          <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/mermaid.jpg" alt="Mermaid character" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings at night" loading="lazy" decoding="async" /></figure>
-          <figure class="wide">
-            <video src="media/san-jose-staircase.mp4" controls muted playsinline preload="none" aria-label="Duo staircase performance"></video>
-          </figure>
-          <figure><img src="media/butterfly-wings.jpg" alt="Handmade butterfly wings" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/designer-ballerina-costume.jpg" alt="Designer ballerina costume" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/ivy-sarah.jpeg" alt="Ivy themed character costume" loading="lazy" decoding="async" /></figure>
-          <figure><img src="media/royal-ballet-dancer.jpg" alt="Dance portrait" loading="lazy" decoding="async" /></figure>
-        </div>
-      </div>
-    </section>
-
-    <div class="peek" aria-hidden="true">
-      <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
-    </div>
-
-    <!-- COSTUME SECTION. Needs media/costume-sketch.jpeg (the file in the repo is empty). Delete this section if it isn't ready. -->
-    <section aria-label="Costumes we make">
-      <div class="wrap">
-        <div class="make-grid">
-          <figure>
-            <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
-            <figcaption>The drawing</figcaption>
-          </figure>
-          <figure>
-            <img src="media/pink-dragonfly-costume.jpg" alt="The finished pink dragonfly costume" loading="lazy" decoding="async" />
-            <figcaption>The costume</figcaption>
-          </figure>
-        </div>
-        <p class="make-note">We design and build many of our costumes. Some start as a sketch — others are bought and rebuilt from scratch.</p>
       </div>
     </section>
 
@@ -231,18 +207,61 @@
       </div>
     </section>
 
-    <div class="logos" aria-label="Places we have performed">
-      <p>Performed for</p>
-      <div class="logos-row">
-        <img src="media/logo-piedmont.svg" alt="Piedmont" />
-        <img src="media/open-gov.png" alt="OpenGov" />
-        <img src="media/mirth-and-mischief.png" alt="Mirth and Mischief" />
+    <!-- REEL SECTION. Parked until media/reel.mp4 exists. Add the file, then remove this comment wrapper.
+    <section id="reel" aria-label="Performance reel">
+      <div class="reel-wrap">
+        <div class="reel-frame">
+          <video src="media/reel.mp4" poster="media/mirror-suit-example.jpg" controls playsinline preload="none" aria-label="Pending Circus performance reel"></video>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <section id="photos" aria-label="Photos">
+      <div class="photo-wrap">
+        <div class="grid">
+          <figure><img src="media/mirror-suit-example.jpg" alt="Mirror suit walkaround costume" loading="eager" decoding="async" /></figure>
+          <figure><img src="media/gold-mirror-tree-costume.jpg" alt="Gold mirror tree costume" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/mermaid.jpg" alt="Mermaid character" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/led-butterfly.jpg" alt="LED butterfly wings at night" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/butterfly-wings.jpg" alt="Handmade butterfly wings" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/designer-ballerina-costume.jpg" alt="Designer ballerina costume" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/ivy-sarah.jpeg" alt="Ivy themed character costume" loading="lazy" decoding="async" /></figure>
+          <figure><img src="media/royal-ballet-dancer.jpg" alt="Dance portrait" loading="lazy" decoding="async" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="peek" aria-hidden="true">
+      <div class="peek-inner">
+        <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
+        <p class="peek-cap">Resident Dragon ✶ Mildly Dramatic</p>
       </div>
     </div>
+
+    <section aria-label="Costumes we make">
+      <div class="wrap">
+        <div class="make-grid">
+          <figure>
+            <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
+            <figcaption>The drawing</figcaption>
+          </figure>
+          <figure>
+            <img src="media/pink-dragonfly-costume.jpg" alt="The finished pink dragonfly costume" loading="lazy" decoding="async" />
+            <figcaption>The costume</figcaption>
+          </figure>
+        </div>
+        <p class="make-note">We design and build many of our costumes. Some start as a sketch. Others are bought and rebuilt from scratch.</p>
+      </div>
+    </section>
 
     <section class="next-sec" aria-labelledby="next-h">
       <div class="wrap next">
         <div class="sec-head"><h2 id="next-h">What's Next</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
+        <a class="feat" href="https://joie2026.com" target="_blank" rel="noreferrer">
+          <img src="media/joie-logo.png" alt="JOIE: An Immersive Holiday Adventure" />
+          <span>JOIE. Atlanta, Winter 2026.</span>
+        </a>
         <ul>
           <li><b>Spring 2027</b>HauntCon, Orlando.</li>
           <li><b>Open</b>Available for productions, festival runs, faires and parks.</li>
@@ -250,31 +269,25 @@
       </div>
     </section>
 
-    <section id="contact" aria-label="Get in touch">
-      <div class="wrap">
-        <form class="book-form" id="contact-form" action="https://formspree.io/f/mlgaplok" method="POST" novalidate>
-          <h2>Get In Touch</h2>
-          <p class="form-note">Rates and availability on request.</p>
-          <div class="fgrid">
-            <label><span>Name</span><input type="text" name="name" autocomplete="name" /></label>
-            <label><span>Email</span><input type="email" name="email" autocomplete="email" inputmode="email" /></label>
-            <label><span>City</span><input type="text" name="city" autocomplete="address-level2" /></label>
-            <label><span>Date</span><input type="date" name="date" /></label>
-            <label class="full"><span>Tell us a little</span><textarea name="details"></textarea></label>
+    <section id="contact" aria-label="Get in touch and about">
+      <div class="wide-wrap">
+        <div class="bottom-grid">
+          <form class="book-form" id="contact-form" action="https://formspree.io/f/mlgaplok" method="POST" novalidate>
+            <h2>Get In Touch</h2>
+            <div class="fgrid">
+              <label><span>Name</span><input type="text" name="name" autocomplete="name" /></label>
+              <label><span>Email</span><input type="email" name="email" autocomplete="email" inputmode="email" /></label>
+              <label><span>City</span><input type="text" name="city" autocomplete="address-level2" /></label>
+              <label><span>Date</span><input type="date" name="date" /></label>
+              <label class="full"><span>Tell us a little</span><textarea name="details"></textarea></label>
+            </div>
+            <button type="submit" class="fbtn">Send</button>
+          </form>
+          <div class="about" id="about">
+            <h2>About</h2>
+            <p>Sarah is a professional dancer, choreographer and instructor and has danced since she was three. John came to one of her classes as a student and stayed on as a performing partner.</p>
+            <p>Together they have performed at galas, private parties, clubs, festivals and stage productions, and they design and build their own costumes. Based in Atlanta, available to travel.</p>
           </div>
-          <button type="submit" class="fbtn">Send</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="about" aria-label="About">
-      <div class="wrap about">
-        <div class="sec-head"><h2>About</h2><span class="star" aria-hidden="true">✶ ✶ ✶</span></div>
-        <p>Sarah is a professional dancer, choreographer and instructor and has danced since she was three. John came to one of her classes as a student and stayed on as a performing partner.</p>
-        <p>Together they have performed at galas, private parties, clubs, festivals and stage productions, and they design and build their own costumes. Based in Atlanta, available to travel.</p>
-        <div class="finley">
-          <img src="media/finley-fire.png" alt="Finley the resident dragon" loading="lazy" decoding="async" />
-          <p>Resident Dragon ✶ Mildly Dramatic</p>
         </div>
       </div>
     </section>
