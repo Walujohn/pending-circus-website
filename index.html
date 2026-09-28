@@ -8,7 +8,8 @@
        BEFORE PUSHING:
          1. Save the JOIE logo into media/joie-logo.png (CSP blocks hotlinking). If SVG, change the one <img src>.
          2. INSTAGRAM-HANDLE in the footer is still a placeholder.
-         3. Reel is parked in a comment until media/reel.mp4 exists. Search REEL SECTION.
+         3. media/san-jose-staircase.mp4 is REPLACED by the 3 MB re-encode in this folder. Copy it and staircase-poster.jpg into media/.
+         4. When the reel is cut, search CLIP and swap the src and poster.
        Gallery photos are all swappable; fierce-sarah and montreal-table were picked by orientation, not by eye. -->
   <meta name="description" content="Pending Circus. A performance duo in Atlanta." />
   <meta name="theme-color" content="#F6F0E4" />
@@ -45,6 +46,10 @@
     .hero{position:relative;height:calc(100svh - clamp(6.5rem,16vw,14rem));min-height:24rem;overflow:hidden}
     .hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
     .badge{position:absolute;top:1.2rem;left:1.2rem;background:var(--teal);padding:.4rem .95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;transform:rotate(-3deg);border-radius:2px}
+
+    /* clip under the hero: portrait video, centered, screen height */
+    .clip{padding:clamp(1.5rem,4vw,3rem) 1.25rem;background:var(--paper);display:flex;justify-content:center}
+    .clip video{display:block;width:min(100%,calc(92svh * 0.5625));aspect-ratio:9/16;background:var(--paper-2)}
 
     /* every section is a poster: full width, big padding, its own color */
     section{padding:clamp(3.5rem,8vw,7rem) clamp(1.25rem,5vw,5rem)}
@@ -133,6 +138,13 @@
       <span class="badge">Booking 2027</span>
     </div>
 
+    <!-- CLIP. Stand-in until the reel is cut. When media/reel.mp4 exists, swap the src and poster here.
+         This clip is a portrait phone video, so it sits centered at screen height. A landscape reel
+         will fill the width instead: change .clip video to width:100%;aspect-ratio:16/9. -->
+    <section class="clip" aria-label="Performance clip">
+      <video src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" controls playsinline preload="metadata" aria-label="Sarah and John performing on a staircase"></video>
+    </section>
+
     <section class="quotes" aria-label="What people say">
       <span class="kicker">What people say</span>
       <blockquote class="big-q">
@@ -159,12 +171,6 @@
         <img src="media/mirth-and-mischief.png" alt="Mirth and Mischief" />
       </div>
     </section>
-
-    <!-- REEL SECTION. Parked until media/reel.mp4 exists. Add the file, then remove this comment wrapper.
-    <section class="photos" aria-label="Performance reel">
-      <video src="media/reel.mp4" poster="media/gold-mirror-tree-costume.jpg" controls playsinline preload="none" aria-label="Pending Circus performance reel" style="width:100%;aspect-ratio:16/9"></video>
-    </section>
-    -->
 
     <section class="photos" aria-label="Photos">
       <div class="grid">
@@ -203,27 +209,7 @@
     <section class="next" aria-labelledby="next-h">
       <span class="kicker" id="next-h">What's next</span>
       <a class="feat" href="https://joie2026.com" target="_blank" rel="noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 185" role="img" aria-label="JOIE: An Immersive Holiday Adventure" style="height:clamp(5rem,12vw,10rem);width:auto;display:block">
-          <title>JOIE: An Immersive Holiday Adventure</title>
-          <defs>
-            <linearGradient id="joie-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#102040"/>
-              <stop offset="100%" stop-color="#060F1E"/>
-            </linearGradient>
-          </defs>
-          <rect width="380" height="185" rx="10" fill="url(#joie-grad)"/>
-          <rect x="10" y="10" width="360" height="165" rx="7" fill="none" stroke="#C8A84B" stroke-width="1.2"/>
-          <polygon points="24,18 28,24 24,30 20,24" fill="#C8A84B" opacity="0.7"/>
-          <polygon points="356,18 360,24 356,30 352,24" fill="#C8A84B" opacity="0.7"/>
-          <polygon points="24,155 28,161 24,167 20,161" fill="#C8A84B" opacity="0.7"/>
-          <polygon points="356,155 360,161 356,167 352,161" fill="#C8A84B" opacity="0.7"/>
-          <text x="190" y="55" text-anchor="middle" font-size="28" fill="#B8E0EE" opacity="0.9">&#x2744;</text>
-          <text x="65" y="98" text-anchor="middle" font-size="13" fill="#B8E0EE" opacity="0.4">&#x2744;</text>
-          <text x="315" y="98" text-anchor="middle" font-size="13" fill="#B8E0EE" opacity="0.4">&#x2744;</text>
-          <text x="190" y="118" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="55" font-weight="700" letter-spacing="12" fill="#F0EAD6">JOIE</text>
-          <line x1="82" y1="130" x2="298" y2="130" stroke="#C8A84B" stroke-width=".8" opacity="0.7"/>
-          <text x="190" y="153" text-anchor="middle" font-family="'Arial Narrow',Arial,sans-serif" font-size="9.5" letter-spacing="3.5" fill="#C8A84B">AN IMMERSIVE HOLIDAY ADVENTURE</text>
-        </svg>
+        <img src="media/joie-logo.png" alt="JOIE: An Immersive Holiday Adventure" />
         <span>JOIE. Atlanta, Winter 2026.</span>
       </a>
       <ul>
