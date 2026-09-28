@@ -47,9 +47,12 @@
     .hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
     .badge{position:absolute;top:1.2rem;left:1.2rem;background:var(--teal);padding:.4rem .95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;transform:rotate(-3deg);border-radius:2px}
 
-    /* clip under the hero: portrait video, centered, screen height */
-    .clip{padding:clamp(1.5rem,4vw,3rem) 1.25rem;background:var(--paper);display:flex;justify-content:center}
-    .clip video{display:block;width:min(100%,calc(92svh * 0.5625));aspect-ratio:9/16;background:var(--paper-2)}
+    /* clip under the hero: full bleed, the vertical video centered over a blurred copy of itself */
+    .clip{position:relative;height:min(100svh,64rem);overflow:hidden;background:var(--paper-2);display:flex;justify-content:center;align-items:center;padding:0}
+    .clip-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(36px) saturate(.85);transform:scale(1.25);opacity:.55}
+    .clip::after{content:"";position:absolute;inset:0;background:var(--paper);opacity:.45;pointer-events:none}
+    .clip-fg{position:relative;z-index:1;display:block;height:100%;width:auto;max-width:100%;aspect-ratio:9/16;object-fit:cover}
+    @media (max-width:760px){.clip{height:auto}.clip-bg,.clip::after{display:none}.clip-fg{width:100%;height:auto}}
 
     /* every section is a poster: full width, big padding, its own color */
     section{padding:clamp(3.5rem,8vw,7rem) clamp(1.25rem,5vw,5rem)}
@@ -138,11 +141,12 @@
       <span class="badge">Booking 2027</span>
     </div>
 
-    <!-- CLIP. Stand-in until the reel is cut. When media/reel.mp4 exists, swap the src and poster here.
-         This clip is a portrait phone video, so it sits centered at screen height. A landscape reel
-         will fill the width instead: change .clip video to width:100%;aspect-ratio:16/9. -->
+    <!-- CLIP. Stand-in until the reel is cut. When media/reel.mp4 exists, swap the src in BOTH video tags and the poster.
+         The clip is portrait, so it plays centered over a blurred copy of itself that fills the width.
+         A landscape reel fills the width on its own: delete the .clip-bg video and set .clip-fg to width:100%;height:auto;aspect-ratio:16/9. -->
     <section class="clip" aria-label="Performance clip">
-      <video src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" controls playsinline preload="metadata" aria-label="Sarah and John performing on a staircase"></video>
+      <video class="clip-bg" src="media/san-jose-staircase.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+      <video class="clip-fg" src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" autoplay muted loop playsinline controls preload="auto" aria-label="Sarah and John performing on a staircase"></video>
     </section>
 
     <section class="quotes" aria-label="What people say">
@@ -250,6 +254,14 @@
   </div>
 
   <script>
+    (function () {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.querySelectorAll('.clip video').forEach(function (v) {
+        v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
+      });
+      var bg = document.querySelector('.clip-bg'); if (bg) bg.style.display = 'none';
+    })();
+
     (function () {
       var peek = document.querySelector('.peek');
       if (peek && 'IntersectionObserver' in window) {
