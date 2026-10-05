@@ -13,7 +13,7 @@
        Gallery photos are all swappable; fierce-sarah and montreal-table were picked by orientation, not by eye. -->
   <meta name="description" content="Pending Circus. A performance duo in Atlanta." />
   <meta name="theme-color" content="#F6F0E4" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self' 'unsafe-inline'; connect-src https://formspree.io; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.instagram.com https://*.cdninstagram.com https://*.fbcdn.net; media-src 'self'; script-src 'self' 'unsafe-inline' https://www.instagram.com; frame-src https://www.instagram.com; connect-src https://formspree.io; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" />
@@ -47,12 +47,9 @@
     .hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
     .badge{position:absolute;top:1.2rem;left:1.2rem;background:var(--teal);padding:.4rem .95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;transform:rotate(-3deg);border-radius:2px}
 
-    /* clip under the hero: full bleed, the vertical video centered over a blurred copy of itself */
-    .clip{position:relative;height:min(100svh,64rem);overflow:hidden;background:var(--paper-2);display:flex;justify-content:center;align-items:center;padding:0}
-    .clip-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(36px) saturate(.85);transform:scale(1.25);opacity:.55}
-    .clip::after{content:"";position:absolute;inset:0;background:var(--paper);opacity:.45;pointer-events:none}
-    .clip-fg{position:relative;z-index:1;display:block;height:100%;width:auto;max-width:100%;aspect-ratio:9/16;object-fit:cover}
-    @media (max-width:760px){.clip{height:auto}.clip-bg,.clip::after{display:none}.clip-fg{width:100%;height:auto}}
+    /* Instagram embed constrained to a gallery cell */
+    .insta-wrap{position:relative;overflow:hidden;aspect-ratio:3/4}
+    .insta-wrap .instagram-media{position:absolute!important;top:0;left:0;width:100%!important;min-width:0!important;margin:0!important;max-width:100%!important;border:none!important}
 
     /* every section is a poster: full width, big padding, its own color */
     section{padding:clamp(3.5rem,8vw,7rem) clamp(1.25rem,5vw,5rem)}
@@ -77,7 +74,7 @@
     .photos{padding:0;background:var(--paper)}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
     @media (min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
-    .grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+    .grid img,.grid video{width:100%;aspect-ratio:3/4;object-fit:cover}
 
     /* Finley peeking in from the right edge */
     .peek{position:relative;height:0;overflow:visible;pointer-events:none;z-index:5}
@@ -137,17 +134,9 @@
       <h1>Pending Circus</h1>
     </header>
     <div class="hero">
-      <img src="media/mirror-suit-example.jpg" alt="Mirror suit walkaround costume" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="media/20261002_204149%20(1).jpg" alt="Performance photo" loading="eager" decoding="async" fetchpriority="high" />
       <span class="badge">Booking 2027</span>
     </div>
-
-    <!-- CLIP. Stand-in until the reel is cut. When media/reel.mp4 exists, swap the src in BOTH video tags and the poster.
-         The clip is portrait, so it plays centered over a blurred copy of itself that fills the width.
-         A landscape reel fills the width on its own: delete the .clip-bg video and set .clip-fg to width:100%;height:auto;aspect-ratio:16/9. -->
-    <section class="clip" aria-label="Performance clip">
-      <video class="clip-bg" src="media/san-jose-staircase.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
-      <video class="clip-fg" src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" autoplay muted loop playsinline controls preload="auto" aria-label="Sarah and John performing on a staircase"></video>
-    </section>
 
     <section class="quotes" aria-label="What people say">
       <span class="kicker">What people say</span>
@@ -178,14 +167,24 @@
 
     <section class="photos" aria-label="Photos">
       <div class="grid">
-        <img src="media/matrix-lift-pic.jpg" alt="Sarah and John performing a partner lift" loading="eager" decoding="async" />
-        <img src="media/led-butterfly.jpg" alt="LED butterfly wings at night" loading="lazy" decoding="async" />
-        <img src="media/mermaid.jpg" alt="Mermaid character" loading="lazy" decoding="async" />
-        <img src="media/butterfly-wings.jpg" alt="Handmade butterfly wings" loading="lazy" decoding="async" />
-        <img src="media/designer-ballerina-costume.jpg" alt="Designer ballerina costume" loading="lazy" decoding="async" />
-        <img src="media/royal-ballet-dancer.jpg" alt="Dance portrait" loading="lazy" decoding="async" />
-        <img src="media/fierce-sarah.jpg" alt="Character portrait" loading="lazy" decoding="async" />
-        <img src="media/montreal-table.jpg" alt="Performance in Montreal" loading="lazy" decoding="async" />
+        <video src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" autoplay muted loop playsinline controls preload="auto" aria-label="Sarah and John performing on a staircase"></video>
+        <div class="insta-wrap">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcjWBsKi9ga/" data-instgrm-version="14"></blockquote>
+        </div>
+        <img src="media/20261003_225229.jpg" alt="Performance photo" loading="eager" decoding="async" />
+        <img src="media/20261003_225322.jpg" alt="Performance photo" loading="lazy" decoding="async" />
+        <img src="media/20261003_230801.jpg" alt="Performance photo" loading="lazy" decoding="async" />
+        <img src="media/ballerina.jpeg" alt="Gold mirror cape at sunset" loading="lazy" decoding="async" />
+        <img src="media/20261003_231554.jpg" alt="Performance photo" loading="lazy" decoding="async" />
+        <img src="media/matrix-lift-pic.jpg" alt="Overhead partner lift in Matrix costumes on stage" loading="lazy" decoding="async" />
+        <img src="media/matrix.jpeg" alt="Sarah and John performing in Matrix costumes, high kick under a crystal chandelier" loading="lazy" decoding="async" />
+        <img src="media/IMG-20261003-WA0001.jpg" alt="Performance photo" loading="lazy" decoding="async" />
+        <img src="media/circus_tent.jpg" alt="Circus performers on stilts in ringmaster and harlequin costumes at an outdoor event" loading="lazy" decoding="async" />
+        <img src="media/tent_2.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
+        <img src="media/tent_3.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
+        <img src="media/tent_4.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
+        <img src="media/tent_5.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
+        <img src="media/tent_6.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -256,10 +255,9 @@
   <script>
     (function () {
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      document.querySelectorAll('.clip video').forEach(function (v) {
+      document.querySelectorAll('.grid video').forEach(function (v) {
         v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
       });
-      var bg = document.querySelector('.clip-bg'); if (bg) bg.style.display = 'none';
     })();
 
     (function () {
@@ -297,5 +295,6 @@
       });
     })();
   </script>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
