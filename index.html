@@ -6,10 +6,9 @@
   <title>Pending Circus · Atlanta</title>
   <!-- REPLACES index.html at the repo root.
        BEFORE PUSHING:
-         1. Save the JOIE logo into media/joie-logo.png (CSP blocks hotlinking). If SVG, change the one <img src>.
-         2. INSTAGRAM-HANDLE in the footer is still a placeholder.
-         3. media/san-jose-staircase.mp4 is REPLACED by the 3 MB re-encode in this folder. Copy it and staircase-poster.jpg into media/.
-         4. When the reel is cut, search CLIP and swap the src and poster.
+         1. INSTAGRAM-HANDLE in the footer is still a placeholder.
+         2. media/san-jose-staircase.mp4 is REPLACED by the 3 MB re-encode in this folder. Copy it and staircase-poster.jpg into media/.
+         3. When the reel is cut, search CLIP and swap the src and poster.
        Gallery photos are all swappable; fierce-sarah and montreal-table were picked by orientation, not by eye. -->
   <meta name="description" content="Pending Circus. A performance duo in Atlanta." />
   <meta name="theme-color" content="#F6F0E4" />
@@ -76,27 +75,27 @@
     @media (min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
     .grid img,.grid video{width:100%;aspect-ratio:3/4;object-fit:cover}
 
-    /* Finley peeking in from the right edge */
-    .peek{position:relative;height:0;overflow:visible;pointer-events:none;z-index:5}
-    .peek-inner{position:absolute;right:0;top:-1rem;width:clamp(8rem,16vw,15rem);transform:translateX(62%) rotate(14deg);transition:transform .7s cubic-bezier(.2,.8,.3,1)}
+    /* Finley peeking in from the right edge, in the top corner of the costume text panel */
+    /* overflow-x:clip trims him at the page edge so he can't make the page wider than the screen */
+    .peek{position:absolute;top:0;left:0;right:0;height:0;overflow-x:clip;overflow-y:visible;pointer-events:none;z-index:5}
+    .peek-inner{position:absolute;right:0;top:-1rem;width:clamp(8rem,16vw,15rem);display:flex;flex-direction:column;align-items:flex-end;transform:translateX(62%) rotate(14deg);transition:transform .7s cubic-bezier(.2,.8,.3,1)}
     .peek.is-in .peek-inner{transform:translateX(12%) rotate(-6deg)}
     @media (prefers-reduced-motion: reduce){.peek-inner{transform:translateX(12%) rotate(-6deg)}}
     .peek img{width:100%}
-    .peek-cap{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;padding-right:.4rem;white-space:nowrap;margin-top:.2rem}
+    .peek-cap{font-size:.72rem;line-height:1.35;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;white-space:nowrap;margin:.2rem 28% 0 0}
 
-    /* COSTUMES: two panels edge to edge */
-    .make{padding:0;background:var(--paper-2)}
-    .make-pair{display:grid;grid-template-columns:1fr}
-    @media (min-width:760px){.make-pair{grid-template-columns:1fr 1fr}}
-    .make-pair figure{display:flex;flex-direction:column}
-    .make-pair img{width:100%;height:min(80svh,54rem);object-fit:cover}
-    .make-pair figcaption{padding:.8rem 1.2rem;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center}
-    .make-note{text-align:center;padding:1.2rem clamp(1.25rem,5vw,5rem) 2.6rem;font-size:clamp(1.05rem,1.6vw,1.35rem)}
+    /* COSTUMES: the drawing, and one line about how we work */
+    .make{padding:0;background:var(--paper-2);display:grid;grid-template-columns:1fr}
+    @media (min-width:760px){.make{grid-template-columns:1fr 1fr}}
+    .make > img{width:100%;height:auto;aspect-ratio:3/4;max-height:min(80svh,54rem);object-fit:cover;object-position:center 15%}
+    /* min-height and the right padding leave the dragon his corner */
+    .make-say{position:relative;display:flex;align-items:center;min-height:calc(clamp(8rem,16vw,15rem) * 1.5 + 2.5rem)}
+    .make-note{padding:2.4rem calc(clamp(8rem,16vw,15rem) + .75rem) 2.4rem clamp(1.25rem,5vw,5rem);font-size:clamp(1.35rem,2.6vw,2.2rem);line-height:1.35;font-weight:500;text-wrap:balance}
 
     /* NEXT: teal poster */
     .next{background:var(--paper);text-align:center}
     .feat{display:inline-flex;flex-direction:column;align-items:center;gap:1.2rem;text-decoration:none}
-    .feat img{height:clamp(5rem,12vw,10rem);width:auto}
+    .feat img{width:min(100%,60rem);height:auto}
     .feat span{font-size:clamp(1.4rem,3vw,2.4rem);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
     .feat:hover span{text-decoration:underline;text-underline-offset:6px}
     .next ul{list-style:none;max-width:44rem;margin:2.5rem auto 0;border-top:1px solid var(--line);padding-top:1rem}
@@ -188,31 +187,23 @@
       </div>
     </section>
 
-    <div class="peek" aria-hidden="true">
-      <div class="peek-inner">
-        <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
-        <p class="peek-cap">Resident Dragon ✶ Mildly Dramatic</p>
-      </div>
-    </div>
-
     <section class="make" aria-label="Costumes we make">
-      <div class="make-pair">
-        <figure>
-          <img src="media/costume-sketch.jpg" alt="Construction drawing for a character costume, drawn before the build" loading="lazy" decoding="async" />
-          <figcaption>The drawing</figcaption>
-        </figure>
-        <figure>
-          <img src="media/pink-dragonfly-costume.jpg" alt="The finished pink dragonfly costume" loading="lazy" decoding="async" />
-          <figcaption>The costume</figcaption>
-        </figure>
+      <img src="media/costume-sketch.jpg" alt="Costume sketch of a rock character: a cracked stone face crowned with pine branches, pinecones and red berries" width="1536" height="2048" loading="lazy" decoding="async" />
+      <div class="make-say">
+        <div class="peek" aria-hidden="true">
+          <div class="peek-inner">
+            <img src="media/finley-fire.png" alt="" loading="lazy" decoding="async" />
+            <p class="peek-cap">Resident Dragon<br />Mildly Dramatic</p>
+          </div>
+        </div>
+        <p class="make-note">We design and build many of our costumes. Some start as a sketch. Others are bought and rebuilt from scratch.</p>
       </div>
-      <p class="make-note">We design and build many of our costumes. Some start as a sketch. Others are bought and rebuilt from scratch.</p>
     </section>
 
     <section class="next" aria-labelledby="next-h">
       <span class="kicker" id="next-h">What's next</span>
       <a class="feat" href="https://joie2026.com" target="_blank" rel="noreferrer">
-        <img src="media/joie-logo.png" alt="JOIE: An Immersive Holiday Adventure" />
+        <img src="media/joie-banner.jpg" alt="JOIE. Mirth and Mischief Productions presents: Where wonder comes alive. Theater, light forest, music, characters, snow and fire, puppetry, dance. December 5 to January 3 at Callanwolde in Atlanta, Georgia. joie2026.com" width="2048" height="1074" loading="lazy" decoding="async" />
         <span>JOIE. Atlanta, Winter 2026.</span>
       </a>
       <ul>
