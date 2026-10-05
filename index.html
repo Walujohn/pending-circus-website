@@ -6,9 +6,8 @@
   <title>Pending Circus · Atlanta</title>
   <!-- REPLACES index.html at the repo root.
        BEFORE PUSHING:
-         1. INSTAGRAM-HANDLE in the footer is still a placeholder.
-         2. media/san-jose-staircase.mp4 is REPLACED by the 3 MB re-encode in this folder. Copy it and staircase-poster.jpg into media/.
-         3. When the reel is cut, search CLIP and swap the src and poster.
+         1. media/san-jose-staircase.mp4 is REPLACED by the 3 MB re-encode in this folder. Copy it into media/.
+         2. When the reel is cut, search CLIP and swap the src and poster.
        Gallery photos are all swappable; fierce-sarah and montreal-table were picked by orientation, not by eye. -->
   <meta name="description" content="Pending Circus. A performance duo in Atlanta." />
   <meta name="theme-color" content="#F6F0E4" />
@@ -42,8 +41,9 @@
     /* HERO: the name, then one photo filling the rest of the screen */
     .mast{text-align:center;padding:clamp(1.4rem,3vw,2.4rem) 1.25rem clamp(1rem,2vw,1.6rem)}
     .mast h1{font-size:clamp(3rem,10vw,9rem);line-height:.92;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-    .hero{position:relative;height:calc(100svh - clamp(6.5rem,16vw,14rem));min-height:24rem;overflow:hidden}
-    .hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+    /* on wide screens 93vw wins, which is the height it takes to show Sarah wing tip to feet at full width */
+    .hero{position:relative;height:max(calc(100svh - clamp(6.5rem,16vw,14rem)),93vw);min-height:24rem;overflow:hidden}
+    .hero img{width:100%;height:100%;object-fit:cover;object-position:center 83%}
     .badge{position:absolute;top:1.2rem;left:1.2rem;background:var(--teal);padding:.4rem .95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;transform:rotate(-3deg);border-radius:2px}
 
     /* Instagram embed constrained to a gallery cell */
@@ -166,19 +166,19 @@
 
     <section class="photos" aria-label="Photos">
       <div class="grid">
-        <video src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" autoplay muted loop playsinline controls preload="auto" aria-label="Sarah and John performing on a staircase"></video>
-        <div class="insta-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcjWBsKi9ga/" data-instgrm-version="14"></blockquote>
-        </div>
         <img src="media/20261003_225229.jpg" alt="Performance photo" loading="eager" decoding="async" />
         <img src="media/20261003_225322.jpg" alt="Performance photo" loading="lazy" decoding="async" />
         <img src="media/20261003_230801.jpg" alt="Performance photo" loading="lazy" decoding="async" />
         <img src="media/ballerina.jpeg" alt="Gold mirror cape at sunset" loading="lazy" decoding="async" />
         <img src="media/20261003_231554.jpg" alt="Performance photo" loading="lazy" decoding="async" />
+        <video src="media/san-jose-staircase.mp4" poster="media/staircase-poster.jpg" autoplay muted loop playsinline controls preload="auto" aria-label="Sarah and John performing on a staircase"></video>
         <img src="media/matrix-lift-pic.jpg" alt="Overhead partner lift in Matrix costumes on stage" loading="lazy" decoding="async" />
         <img src="media/matrix.jpeg" alt="Sarah and John performing in Matrix costumes, high kick under a crystal chandelier" loading="lazy" decoding="async" />
         <img src="media/IMG-20261003-WA0001.jpg" alt="Performance photo" loading="lazy" decoding="async" />
         <img src="media/circus_tent.jpg" alt="Circus performers on stilts in ringmaster and harlequin costumes at an outdoor event" loading="lazy" decoding="async" />
+        <div class="insta-wrap">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcjWBsKi9ga/" data-instgrm-version="14"></blockquote>
+        </div>
         <img src="media/tent_2.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
         <img src="media/tent_3.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
         <img src="media/tent_4.jpg" alt="Circus tent event performance" loading="lazy" decoding="async" />
@@ -235,7 +235,7 @@
     <p>
       <a href="mailto:pendingcircus@gmail.com">pendingcircus@gmail.com</a> ✶
       314 276 7081 ✶
-      <a href="https://instagram.com/INSTAGRAM-HANDLE" target="_blank" rel="noreferrer">Instagram</a>
+      <a href="https://www.instagram.com/sarah_fiadh_pending_circus/" target="_blank" rel="noreferrer">Instagram</a>
     </p>
   </footer>
 
